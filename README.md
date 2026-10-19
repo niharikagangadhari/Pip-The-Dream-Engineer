@@ -52,43 +52,10 @@ Inspired by the tactile warmth and editorial elegance of [haX.baby](https://hax.
 
 ---
 
-## 🏆 Bonus Side Quests Completed (+13 Bonus Points!)
-
-| Side Quest | Points | Implementation Details |
-| :--- | :--- | :--- |
-| **Sparkle Cursor Trail** | **+2 pts** | Retro twinkling stars (`✨`, `⭐`, `✦`, `˚˳⊹`, `⋆`) with randomized physics following pointer/touch. |
-| **Hit Counter Odometer** | **+1 pt** | Vintage mechanical drum odometer (*"Sweet Dreams Delivered"*) with local persistence and click incrementation. |
-| **Live Dream Guestbook** | **+2 pts** | Interactive bedtime wish wall with instant submission, local storage persistence, and preloaded creature notes. |
-| **Click Sounds + Mute** | **+3 pts** | Native synthesized audio clicks + **mandatory prominent, accessible, persistent mute toggle** in the top navigation HUD. |
-| **Responsive Chaos Mode** | **+5 pts** | Toggleable "Playroom Mode" displaying floating retro stickers (*"BEST VIEWED AT 3 AM"*, *"BEDTIME APPROVED"*, *"haX.baby 2026"*). |
-| **Total Bonus Points** | **+13 pts** | **100% of available side quest points unlocked!** |
-
----
-
 ## 🥚 Hidden Easter Egg
 
 - **Trigger:** Click the pink bow on Pip's starry nightcap **3 times**.
 - **Reaction:** Triggers Pip's secret giggle chime, an explosion of starlight confetti via an inlined HTML5 canvas engine, and awards +100 sweet dreams to the hit counter!
-
----
-
-## 💻 Running Locally
-
-### Option 1: Native Node Server (Already Running)
-```bash
-node server.js
-```
-Open [http://localhost:3000](http://localhost:3000) in your web browser.
-
-### Option 2: Pure Static (Zero Server Required)
-Simply double-click or open `index.html` directly in any modern browser!
-
----
-
-## 🚢 Deployment (Vercel / GitHub Pages)
-
-- **GitHub Pages:** Push repo, navigate to **Settings > Pages**, choose `main` branch root, and save.
-- **Vercel:** Run `npx vercel` or import the GitHub repository on Vercel with zero configuration required.
 
 ---
 
