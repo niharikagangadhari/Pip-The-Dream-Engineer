@@ -2049,13 +2049,13 @@ html[data-theme="midnight"] body {
 @media (max-width: 768px) {
   .vintage-storybook {
     grid-template-columns: 1fr;
-    min-height: 600px;
   }
 
   .book-page-left {
     display: none !important;
   }
 }
+
 
 /* Leather Hardcover Trim & Brass Corner Accents */
 .book-cover-trim {
@@ -4212,20 +4212,31 @@ html[data-theme="midnight"] .growth-step {
   border-bottom-color: #76547f;
 }
 
-/* 📖 Pip's Storybook — proper mobile layout */
-@media (max-width: 520px) {
+/* ================================================================
+   📖 Pip's Storybook — Mobile Single-Page Layout (≤ 768px)
+   Desktop two-page spread is untouched above this breakpoint.
+   ================================================================ */
+@media (max-width: 768px) {
+
+  /* Container: full width, no overflow clip so ribbon can scroll */
   #pipStorybookContainer {
     width: 100%;
     max-width: 100%;
     min-width: 0;
     padding: 0;
-    overflow: hidden;
   }
 
+  /* Ribbon nav: allow horizontal scroll on small screens */
   #pipStorybookContainer .book-ribbon-nav {
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
+    gap: 8px;
+  }
+
+  #pipStorybookContainer .ribbon-label {
+    display: none;
+    /* hide "Chapters:" label to save space */
   }
 
   #pipStorybookContainer .ribbon-tabs {
@@ -4233,93 +4244,225 @@ html[data-theme="midnight"] .growth-step {
     max-width: 100%;
     overflow-x: auto;
     flex-wrap: nowrap;
-    gap: 8px;
-    padding: 8px 4px 12px;
+    gap: 6px;
+    padding: 6px 4px 12px;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    justify-content: flex-start;
+  }
+
+  #pipStorybookContainer .ribbon-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   #pipStorybookContainer .ribbon-tab {
     flex: 0 0 auto;
     white-space: nowrap;
+    font-size: 0.72rem;
+    padding: 5px 11px;
   }
 
+  /* The book itself: single-column, auto height, rounded */
   #pipStorybookContainer .vintage-storybook {
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    height: auto;
     min-height: 0;
+    height: auto;
     box-sizing: border-box;
+    grid-template-columns: 1fr;
+    border-radius: 16px;
+    padding: 10px;
     overflow: hidden;
   }
 
+  /* Hide the left page entirely — single-page mode */
   #pipStorybookContainer .book-page-left {
     display: none !important;
   }
 
+  /* Remove the decorative book spine crease */
+  #pipStorybookContainer .book-spine-crease {
+    display: none;
+  }
+
+  /* Hide the dog-ear page-turn corner on mobile */
+  #pipStorybookContainer .page-dog-ear {
+    display: none;
+  }
+
+  /* Right page becomes the single full-width story page */
   #pipStorybookContainer .book-page-right {
     position: relative;
+    left: auto;
+    right: auto;
     width: 100%;
     min-width: 0;
     height: auto;
-    min-height: 440px;
+    min-height: 0;
     box-sizing: border-box;
-    padding: 24px 18px 28px;
+    padding: 22px 18px 24px;
+    border-radius: 10px;
     overflow-wrap: anywhere;
+    box-shadow: none;
   }
 
+  /* Hide right-page decorative borders that simulate book spine */
+  #pipStorybookContainer .book-page-right::before,
+  #pipStorybookContainer .book-page-right::after {
+    display: none;
+  }
+
+  /* Book corner trim: keep it but lower z-index so it doesn't clip content */
+  #pipStorybookContainer .book-cover-trim {
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  /* Page header: chapter label row */
   #pipStorybookContainer .page-header-strip {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 4px 8px;
     align-items: center;
+    margin-bottom: 2px;
   }
 
   #pipStorybookContainer .page-folio-title {
+    font-size: 10px;
     max-width: 100%;
     overflow-wrap: anywhere;
+    opacity: 0.7;
   }
 
+  /* Story content: comfortable reading size */
   #pipStorybookContainer .page-content {
     min-width: 0;
     max-width: 100%;
     overflow-wrap: anywhere;
+    padding: 10px 0;
   }
 
-  #pipStorybookContainer .page-content p {
-    font-size: 15px;
-    line-height: 1.8;
+  #pipStorybookContainer .page-content .page-chapter-lead {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  #pipStorybookContainer .page-content p,
+  #pipStorybookContainer .page-content .page-body-narrative {
+    font-size: 0.97rem;
+    line-height: 1.85;
     overflow-wrap: anywhere;
+    margin-bottom: 10px;
   }
 
+  /* Margin notes: compact */
+  #pipStorybookContainer .page-content .pip-margin-note {
+    font-size: 0.82rem;
+    padding: 8px 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+  }
+
+  /* Footer: page nav buttons */
   #pipStorybookContainer .page-footer-strip {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 8px;
+    margin-top: 12px;
   }
 
   #pipStorybookContainer .page-nav-turn {
-    max-width: 100%;
+    max-width: 48%;
     white-space: normal;
+    font-size: 0.82rem;
+    padding: 7px 12px;
   }
 
+  #pipStorybookContainer .page-num {
+    font-size: 0.78rem;
+  }
+
+  /* Bottom control bar */
   #pipStorybookContainer .book-controls-bar {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 4px 4px;
   }
 
   #pipStorybookContainer .book-progress-indicator {
-    order: -1;
-    width: 100%;
+    flex: 1;
     text-align: center;
+    min-width: 0;
   }
 
   #pipStorybookContainer .book-ctrl-btn {
-    max-width: 100%;
+    flex: 0 0 auto;
+    font-size: 0.82rem;
+    padding: 8px 14px;
+    white-space: nowrap;
+  }
+
+  #pipStorybookContainer .book-progress-dots {
+    justify-content: center;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  #pipStorybookContainer #bookPageIndicator {
+    font-size: 0.78rem;
+  }
+
+  /* Drop cap: smaller on mobile */
+  #pipStorybookContainer .drop-cap {
+    font-size: 2.8rem;
+    line-height: 1;
+    margin-right: 3px;
+    float: left;
+  }
+
+  /* Seal badge */
+  #pipStorybookContainer .pip-seal-badge {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.74rem;
+  }
+}
+
+/* Final mobile storybook corrections: one concise page, desktop unchanged */
+@media (max-width: 768px) {
+  #pipStorybookContainer .book-page-leaf-flipping {
+    display: none !important;
+  }
+
+  #pipStorybookContainer .book-page-right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #pipStorybookContainer .book-page-right .page-content {
+    flex: 1 0 auto;
+  }
+
+  #pipStorybookContainer .book-page-right .page-footer-strip {
+    margin-top: auto;
+  }
+
+  #pipStorybookContainer .book-page-right .page-nav-turn {
+    display: none;
+  }
+
+  #pipStorybookContainer .book-controls-bar {
+    flex-wrap: wrap;
+  }
+
+  #pipStorybookContainer .book-ctrl-btn {
     white-space: normal;
+    text-align: center;
   }
 }
