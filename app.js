@@ -590,7 +590,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </p>
         <span class="pip-seal-badge">★ ATELIER RECORDED · 1892</span>
       `
-    },
+      ,
+      mobileStory: `
+        <h3 class="page-chapter-lead">The Attic Cradle</h3>
+        <p class="page-body-narrative">Pip was born in a dusty attic beneath glowing stars. With amber eyes and a crooked smile, he listened to the wind. Every night, he hummed to the darkness, promising that no lonely soul would ever sleep without a dream.</p>
+      `},
     {
       chapNum: "Chapter II",
       title: "The Village of Restless Sleepers",
@@ -617,7 +621,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </p>
         <span class="pip-seal-badge">★ THE FIRST CALLING</span>
       `
-    },
+      ,
+      mobileStory: `
+        <h3 class="page-chapter-lead">The Sleepless Village</h3>
+        <p class="page-body-narrative">Beyond the attic lay a village where nobody could sleep peacefully. Children chased disappearing dreams, grown-ups tossed beneath tangled blankets, and even the cats looked exhausted. Pip set off beneath the moon to discover why the village had forgotten how to dream.</p>
+      `},
     {
       chapNum: "Chapter III",
       title: "The Secret Recipe in Brass Kettles",
@@ -644,7 +652,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </p>
         <span class="pip-seal-badge">★ RECIPE CERTIFIED #48</span>
       `
-    },
+      ,
+      mobileStory: `
+        <h3 class="page-chapter-lead">The Brass Kettles</h3>
+        <p class="page-body-narrative">Pip discovered ancient brass kettles bubbling with dream magic. He mixed moonlight, stardust, sleepy petals, and one wiggly cloud. The mixture exploded into glittering bubbles! His kitchen became a magnificent mess, but he had created something wonderful: dreams made for every sleeping heart.</p>
+      `},
     {
       chapNum: "Chapter IV",
       title: "The Legendary Council Exam",
@@ -671,7 +683,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </p>
         <span class="pip-seal-badge">★ TRIAL PASSED · 100%</span>
       `
-    },
+      ,
+      mobileStory: `
+        <h3 class="page-chapter-lead">The Dream Council</h3>
+        <p class="page-body-narrative">The Dream Council tested Pip's magic. He stumbled over enchanted books, spilled dream powder, and summoned twelve snoring frogs! Everyone giggled, but Pip refused to quit. He discovered that true dream magic came from kindness, courage, and never giving up.</p>
+      `},
     {
       chapNum: "Chapter V",
       title: "The Golden Wrench & First Solo Flight",
@@ -698,7 +714,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </p>
         <span class="pip-seal-badge">★ OFFICIAL LICENSE #007</span>
       `
-    },
+      ,
+      mobileStory: `
+        <h3 class="page-chapter-lead">The Golden Wrench</h3>
+        <p class="page-body-narrative">Pip repaired the ancient dream-delivery machine with his golden wrench. Its wings rattled, its engine sneezed, and his first flight nearly ended in a chimney! Still, he soared above the rooftops, delivering sweet dreams to every home beneath the stars.</p>
+      `},
     {
       chapNum: "Chapter VI",
       title: "Tonight's Mission & Bedtime Whisper",
@@ -730,7 +750,12 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <span class="pip-seal-badge">★ REST PEACEFULLY TONIGHT</span>
       `
-    }
+      ,
+      mobileStory: `
+        <h3 class="page-chapter-lead">Tonight's Mission</h3>
+        <p class="page-body-narrative">Every night, Pip gathers forgotten dreams, repairs broken wishes, and tucks tiny stars into sleepy hearts. "Close your eyes, little star," he whispers. "I'll guard your dreams until morning." Then Pip smiles, knowing tomorrow will bring another magical adventure.</p>
+        <button id="bookLullabyBtn" class="btn-primary" type="button" style="font-size:0.88rem; padding:8px 16px;"><span>▶ Play Pip's Bedtime Lullaby</span></button>
+      `}
   ];
 
   let currentBookPage = 0;
@@ -771,37 +796,50 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function applyPageDOM(data, index) {
+    const mobileView = window.matchMedia('(max-width: 768px)').matches;
+
     if (leftChapNum) leftChapNum.textContent = data.chapNum;
     if (leftPageNum) leftPageNum.textContent = `Page ${index * 2 + 1}`;
-    if (leftPageContent) leftPageContent.innerHTML = data.leftContent;
+    if (leftPageContent) leftPageContent.innerHTML = mobileView ? '' : data.leftContent;
 
-    if (rightChapNum) rightChapNum.textContent = 'Dispatch #' + String(index + 1).padStart(3, '0');
-    if (rightPageNum) rightPageNum.textContent = `Page ${index * 2 + 2}`;
-    if (rightPageContent) rightPageContent.innerHTML = data.rightContent;
+    if (rightChapNum) rightChapNum.textContent = mobileView
+      ? data.chapNum
+      : 'Dispatch #' + String(index + 1).padStart(3, '0');
+    if (rightPageNum) rightPageNum.textContent = mobileView
+      ? `Chapter ${index + 1} of ${storyChapters.length}`
+      : `Page ${index * 2 + 2}`;
+    if (rightPageContent) {
+      rightPageContent.innerHTML = mobileView && data.mobileStory
+        ? data.mobileStory
+        : data.rightContent;
+    }
 
     if (bookPageIndicator) {
       bookPageIndicator.textContent = `Chapter ${index + 1} of ${storyChapters.length}`;
     }
 
-    // Update Ribbon Tabs & Progress Dots
     document.querySelectorAll('.ribbon-tab').forEach((tab, i) => {
       tab.classList.toggle('active', i === index);
     });
-
     const dots = document.querySelectorAll('#bookProgressDots .dot');
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
 
-    // Wire up lullaby button on page 6 if rendered
     const bookLullabyBtn = document.getElementById('bookLullabyBtn');
-    if (bookLullabyBtn) {
+    if (bookLullabyBtn && !bookLullabyBtn.dataset.wired) {
+      bookLullabyBtn.dataset.wired = 'true';
       bookLullabyBtn.addEventListener('click', () => {
         audio.startLullaby(0);
         updateLullabyUI(true);
       });
     }
   }
+
+  // Keep the story appropriate when the viewport changes between desktop and mobile.
+  let storybookResizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(storybookResizeTimer);
+    storybookResizeTimer = setTimeout(() => renderBookChapter(currentBookPage), 120);
+  });
 
   function turnBookPage(dir) {
     if (dir === 'next' && currentBookPage < storyChapters.length - 1) {
