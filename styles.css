@@ -4740,3 +4740,56 @@ html[data-theme="midnight"] .growth-step {
     display: none;
   }
 }
+
+/* 🔦 Global Night Mode flashlight */
+#pip-flashlight {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle,
+      rgba(255, 248, 205, 0.30) 0%,
+      rgba(255, 235, 170, 0.16) 25%,
+      rgba(255, 225, 150, 0.06) 50%,
+      transparent 72%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+html[data-theme="midnight"] #pip-flashlight {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  #pip-flashlight {
+    display: none;
+  }
+}
+
+/* 🌙 Scroll Story — Night Mode */
+html[data-theme="midnight"] #pip-dream-journey {
+  background-color: #171329 !important;
+  color: #fff1e8;
+}
+
+html[data-theme="midnight"] #pip-dream-journey .dream-journey-inner {
+  background-color: #171329;
+  color: #fff1e8;
+}
+
+html[data-theme="midnight"] #pip-dream-journey [data-dream-scene] {
+  background-color: #171329;
+  color: #fff1e8;
+}
+
+html[data-theme="midnight"] #pip-dream-journey [data-dream-scene] h1,
+html[data-theme="midnight"] #pip-dream-journey [data-dream-scene] h2,
+html[data-theme="midnight"] #pip-dream-journey [data-dream-scene] h3,
+html[data-theme="midnight"] #pip-dream-journey [data-dream-scene] p {
+  color: #fff1e8;
+}
