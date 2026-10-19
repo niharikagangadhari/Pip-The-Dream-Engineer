@@ -4471,6 +4471,7 @@ html[data-theme="midnight"] .growth-step {
 
 .pip-dream-journey {
   position: relative;
+  z-index: 2;
   isolation: isolate;
   overflow: clip;
   padding: clamp(4rem, 9vw, 8rem) 1.25rem;
