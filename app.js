@@ -1444,3 +1444,31 @@ document.addEventListener('DOMContentLoaded', () => {
     say("Fresh blocks! Build something silly! ♡");
   });
 })();
+
+/* 🔦 Flashlight across the entire website */
+(() => {
+  function initFlashlight() {
+    let light = document.getElementById("pip-flashlight");
+
+    if (!light) {
+      light = document.createElement("div");
+      light.id = "pip-flashlight";
+      document.body.appendChild(light);
+    }
+
+    document.addEventListener("mousemove", (e) => {
+      light.style.left = `${e.clientX}px`;
+      light.style.top = `${e.clientY}px`;
+    });
+
+    window.addEventListener("scroll", () => {
+      light.style.visibility = "visible";
+    }, { passive: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initFlashlight);
+  } else {
+    initFlashlight();
+  }
+})();
