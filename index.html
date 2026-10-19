@@ -260,906 +260,905 @@
         </div>
 
       </div>
-      <!-- ===== SCROLL‑DRIVEN STORY ===== -->
-      <section id="scroll-story" class="scroll-story">
-        <div class="story-step" id="step1">
-          <h2>First Whisper</h2>
-          <p>When the night sky shimmers, Pip hears the first secret of a dream.</p>
-        </div>
-        <div class="story-step" id="step2">
-          <h2>Midnight Flight</h2>
-          <p>He soars above cloud‑carved islands, gathering starlight for the next adventure.</p>
-        </div>
-        <div class="story-step" id="step3">
-          <h2>Dreams Delivered</h2>
-          <p>Every dream lands softly in a sleepy heart, and Pip smiles at the sunrise.</p>
-        </div>
-      </section>
-      <!-- ===== END SCROLL‑DRIVEN STORY ===== -->
-      -->
+    </section>
+    <!-- ===== SCROLL‑DRIVEN STORY ===== -->
+    <section id="scroll-story" class="scroll-story">
+      <div class="story-step" id="step1">
+        <h2>First Whisper</h2>
+        <p>When the night sky shimmers, Pip hears the first secret of a dream.</p>
+      </div>
+      <div class="story-step" id="step2">
+        <h2>Midnight Flight</h2>
+        <p>He soars above cloud‑carved islands, gathering starlight for the next adventure.</p>
+      </div>
+      <div class="story-step" id="step3">
+        <h2>Dreams Delivered</h2>
+        <p>Every dream lands softly in a sleepy heart, and Pip smiles at the sunrise.</p>
+      </div>
+    </section>
+    <!-- ===== END SCROLL‑DRIVEN STORY ===== -->
 
-      <!-- Showcase 1: The Lullaby Lab (Web Audio Synth & Music Box) -->
-      <section id="lullaby-lab" class="showcase-block wrap">
-        <div class="section-lead">
-          <span class="section-eyebrow">Showcase Project 01</span>
-          <h2 class="section-title">The <em>Lullaby Lab</em> Music Box</h2>
-          <p class="section-subtitle">
-            Pip’s patented bedtime synthesizer. Crafted with brass gears, pastel enamel, and Web Audio API oscillators
-            that play comforting pentatonic harmonies.
-          </p>
+    <!-- Showcase 1: The Lullaby Lab (Web Audio Synth & Music Box) -->
+    <section id="lullaby-lab" class="showcase-block wrap">
+      <div class="section-lead">
+        <span class="section-eyebrow">Showcase Project 01</span>
+        <h2 class="section-title">The <em>Lullaby Lab</em> Music Box</h2>
+        <p class="section-subtitle">
+          Pip’s patented bedtime synthesizer. Crafted with brass gears, pastel enamel, and Web Audio API oscillators
+          that play comforting pentatonic harmonies.
+        </p>
+      </div>
+
+      <div class="lullaby-lab-card">
+        <!-- Studio Render Preview with Interactive Winding Key -->
+        <div class="lullaby-box-preview">
+          <img src="assets/pip_lullaby_box.jpg" alt="Pip's pastel lullaby music box with winding key and floating stars"
+            loading="lazy">
+          <button id="windingKey" class="winding-key-overlay" type="button" title="Click to wind the music box key!">
+            <span class="key-icon">🗝️</span>
+            <strong>Wind Music Box</strong>
+          </button>
         </div>
 
-        <div class="lullaby-lab-card">
-          <!-- Studio Render Preview with Interactive Winding Key -->
-          <div class="lullaby-box-preview">
-            <img src="assets/pip_lullaby_box.jpg"
-              alt="Pip's pastel lullaby music box with winding key and floating stars" loading="lazy">
-            <button id="windingKey" class="winding-key-overlay" type="button" title="Click to wind the music box key!">
-              <span class="key-icon">🗝️</span>
-              <strong>Wind Music Box</strong>
+        <!-- Controls & Interactive Chime Keys -->
+        <div class="lullaby-controls">
+          <h3>The Celestial Music Box</h3>
+          <p id="lullabyStatus" class="lullaby-desc">Wind the key or press play to begin soothing chimes.</p>
+
+          <!-- Real-Time Waveform Visualizer -->
+          <div class="synth-visualizer-wrap" title="Real-time Web Audio frequency analyser">
+            <canvas id="audioVisualizer"></canvas>
+          </div>
+
+          <!-- Melody Presets -->
+          <div class="melody-selector">
+            <label>Select Lullaby Recipe:</label>
+            <div class="melody-btn-group">
+              <button class="melody-btn active" data-melody="0" type="button">Midnight Nursery</button>
+              <button class="melody-btn" data-melody="1" type="button">Starlight Waltz</button>
+              <button class="melody-btn" data-melody="2" type="button">Rooftop Drift</button>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <button id="toggleLullabyBtn" class="btn-primary" type="button">
+              <span>▶ Play Bedtime Lullaby</span>
             </button>
           </div>
 
-          <!-- Controls & Interactive Chime Keys -->
-          <div class="lullaby-controls">
-            <h3>The Celestial Music Box</h3>
-            <p id="lullabyStatus" class="lullaby-desc">Wind the key or press play to begin soothing chimes.</p>
-
-            <!-- Real-Time Waveform Visualizer -->
-            <div class="synth-visualizer-wrap" title="Real-time Web Audio frequency analyser">
-              <canvas id="audioVisualizer"></canvas>
-            </div>
-
-            <!-- Melody Presets -->
-            <div class="melody-selector">
-              <label>Select Lullaby Recipe:</label>
-              <div class="melody-btn-group">
-                <button class="melody-btn active" data-melody="0" type="button">Midnight Nursery</button>
-                <button class="melody-btn" data-melody="1" type="button">Starlight Waltz</button>
-                <button class="melody-btn" data-melody="2" type="button">Rooftop Drift</button>
-              </div>
-            </div>
-
-            <div style="margin-bottom: 20px;">
-              <button id="toggleLullabyBtn" class="btn-primary" type="button">
-                <span>▶ Play Bedtime Lullaby</span>
-              </button>
-            </div>
-
-            <!-- Playable Pentatonic Chime Keys (Interactive Instrument) -->
-            <label
-              style="font-size:0.8rem; font-family:var(--font-mono); color:var(--text-muted); text-transform:uppercase;">
-              Or Tap Your Own Chimes (Pentatonic Scale):
-            </label>
-            <div class="chime-keyboard" role="group" aria-label="Playable chime keys">
-              <button class="chime-key" data-note="C5" type="button">1<br><small>C5 ♪</small></button>
-              <button class="chime-key" data-note="D5" type="button">2<br><small>D5 ♪</small></button>
-              <button class="chime-key" data-note="E5" type="button">3<br><small>E5 ♪</small></button>
-              <button class="chime-key" data-note="G5" type="button">4<br><small>G5 ♪</small></button>
-              <button class="chime-key" data-note="A5" type="button">5<br><small>A5 ♪</small></button>
-              <button class="chime-key" data-note="C6" type="button">6<br><small>C6 ♪</small></button>
-            </div>
+          <!-- Playable Pentatonic Chime Keys (Interactive Instrument) -->
+          <label
+            style="font-size:0.8rem; font-family:var(--font-mono); color:var(--text-muted); text-transform:uppercase;">
+            Or Tap Your Own Chimes (Pentatonic Scale):
+          </label>
+          <div class="chime-keyboard" role="group" aria-label="Playable chime keys">
+            <button class="chime-key" data-note="C5" type="button">1<br><small>C5 ♪</small></button>
+            <button class="chime-key" data-note="D5" type="button">2<br><small>D5 ♪</small></button>
+            <button class="chime-key" data-note="E5" type="button">3<br><small>E5 ♪</small></button>
+            <button class="chime-key" data-note="G5" type="button">4<br><small>G5 ♪</small></button>
+            <button class="chime-key" data-note="A5" type="button">5<br><small>A5 ♪</small></button>
+            <button class="chime-key" data-note="C6" type="button">6<br><small>C6 ♪</small></button>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Showcase 2: Nightlight Collection (Dynamic Ambient Illumination & Night Lamp Toggle) -->
-      <section id="nightlights" class="showcase-block wrap">
-        <div class="section-lead">
-          <span class="section-eyebrow">Showcase Project 02 · Antique Ambient Illumination</span>
-          <h2 class="section-title">The Bedside <em>Night Lamp</em> & Lanterns</h2>
-          <p class="section-subtitle">
-            Pip’s hand-forged bedside reading lamp and starlight lanterns. Click the night lamp or pull its brass chain
-            to
-            toggle between warm Daylight Twilight and velvety Midnight Dream mode!
-          </p>
-        </div>
+    <!-- Showcase 2: Nightlight Collection (Dynamic Ambient Illumination & Night Lamp Toggle) -->
+    <section id="nightlights" class="showcase-block wrap">
+      <div class="section-lead">
+        <span class="section-eyebrow">Showcase Project 02 · Antique Ambient Illumination</span>
+        <h2 class="section-title">The Bedside <em>Night Lamp</em> & Lanterns</h2>
+        <p class="section-subtitle">
+          Pip’s hand-forged bedside reading lamp and starlight lanterns. Click the night lamp or pull its brass chain
+          to
+          toggle between warm Daylight Twilight and velvety Midnight Dream mode!
+        </p>
+      </div>
 
-        <!-- Centerpiece: Interactive Vintage Bedside Night Lamp -->
-        <div class="vintage-lamp-stage" id="vintageNightLamp">
-          <div class="lamp-interactive-shell" title="Click lamp or pull chain to toggle Light and Dark Mode!">
-            <div class="vintage-lamp-apparatus" id="lampApparatus">
-              <!-- Lamp Finial & Cap -->
-              <div class="lamp-finial"></div>
-              <!-- Pleated Vintage Shade with Warm Glowing Bulb -->
-              <div class="lamp-shade" id="lampShade">
-                <div class="lamp-shade-ribs"></div>
-                <div class="lamp-bulb-glow" id="lampBulbGlow"></div>
-                <div class="lamp-glow-bloom"></div>
-              </div>
-              <!-- Brass Column / Neck -->
-              <div class="lamp-neck">
-                <div class="lamp-socket"></div>
-                <!-- Pull Chain with Brass Tassel -->
-                <div class="lamp-pull-cord" id="lampPullCord" title="Pull cord to switch theme!">
-                  <span class="chain-bead"></span>
-                  <span class="chain-bead"></span>
-                  <span class="chain-bead"></span>
-                  <span class="chain-bead"></span>
-                  <span class="chain-tassel">✦</span>
-                </div>
-              </div>
-              <!-- Ornate Brass Foot Base -->
-              <div class="lamp-base"></div>
+      <!-- Centerpiece: Interactive Vintage Bedside Night Lamp -->
+      <div class="vintage-lamp-stage" id="vintageNightLamp">
+        <div class="lamp-interactive-shell" title="Click lamp or pull chain to toggle Light and Dark Mode!">
+          <div class="vintage-lamp-apparatus" id="lampApparatus">
+            <!-- Lamp Finial & Cap -->
+            <div class="lamp-finial"></div>
+            <!-- Pleated Vintage Shade with Warm Glowing Bulb -->
+            <div class="lamp-shade" id="lampShade">
+              <div class="lamp-shade-ribs"></div>
+              <div class="lamp-bulb-glow" id="lampBulbGlow"></div>
+              <div class="lamp-glow-bloom"></div>
             </div>
-
-            <div class="lamp-control-panel">
-              <span class="lamp-status-chip" id="lampStatusChip">
-                <span class="chip-glow-dot"></span>
-                <span id="lampStatusText">Midnight Mode Active</span>
-              </span>
-              <h3 class="lamp-showcase-title">Midnight Nursery Reading Lamp</h3>
-              <p class="lamp-showcase-desc">
-                Cast in fluted brass with an antique pleated linen shade. Pulling the chain clicks the internal
-                starlight
-                dynamo, transitioning the entire nursery between sunlit twilight and starry midnight.
-              </p>
-              <div class="lamp-actions-row">
-                <button id="lampPullBtn" class="btn-primary lamp-toggle-action" type="button">
-                  <span>Pull Chain · Toggle Light / Dark</span>
-                  <span class="lamp-btn-icon" aria-hidden="true">💡</span>
-                </button>
-                <span class="lamp-hint-note">❧ Click shade, chain, or button to toggle modes!</span>
+            <!-- Brass Column / Neck -->
+            <div class="lamp-neck">
+              <div class="lamp-socket"></div>
+              <!-- Pull Chain with Brass Tassel -->
+              <div class="lamp-pull-cord" id="lampPullCord" title="Pull cord to switch theme!">
+                <span class="chain-bead"></span>
+                <span class="chain-bead"></span>
+                <span class="chain-bead"></span>
+                <span class="chain-bead"></span>
+                <span class="chain-tassel">✦</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- 3 Bedside Lanterns that also toggle and shift mood -->
-        <div class="nightlight-grid">
-
-          <!-- Lamp 1: Crescent Porcelain Lantern -->
-          <article class="lamp-card active-lamp" data-lamp="crescent" title="Click to toggle twilight/midnight!">
-            <div class="lamp-image-wrap">
-              <img src="assets/pip_dream_lantern.jpg" alt="Dream porcelain lantern with sleeping crescent moon inside"
-                loading="lazy">
-              <span class="lamp-badge">Pip's Favorite</span>
-            </div>
-            <h3 class="lamp-title">Crescent Moon Lantern</h3>
-            <p class="lamp-desc">Hand-carved frosted porcelain with brass trim. Radiates a comforting golden starlight
-              glow that warms frosty toes.</p>
-            <span class="lamp-toggle-btn">● Glowing Amber · Tap to Switch Mode</span>
-          </article>
-
-          <!-- Lamp 2: Firefly Glass Orb -->
-          <article class="lamp-card" data-lamp="firefly" title="Click to toggle twilight/midnight!">
-            <div class="lamp-image-wrap">
-              <div
-                style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:radial-gradient(circle, #a7f3d0 0%, #064e3b 100%); font-size:3.5rem;">
-                ✨🪲
-              </div>
-              <span class="lamp-badge">Forest Edition</span>
-            </div>
-            <h3 class="lamp-title">Firefly Starlight Orb</h3>
-            <p class="lamp-desc">Bottled forest glow from the Sleepy Pines. Emits a calm emerald twilight perfect for
-              little woodland creatures.</p>
-            <span class="lamp-toggle-btn">○ Tap to Switch Mode</span>
-          </article>
-
-          <!-- Lamp 3: Stardust Mushroom Lamp -->
-          <article class="lamp-card" data-lamp="mushroom" title="Click to toggle twilight/midnight!">
-            <div class="lamp-image-wrap">
-              <div
-                style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:radial-gradient(circle, #fbcfe8 0%, #831843 100%); font-size:3.5rem;">
-                🍄💫
-              </div>
-              <span class="lamp-badge">Berry Dream</span>
-            </div>
-            <h3 class="lamp-title">Stardust Mushroom Lamp</h3>
-            <p class="lamp-desc">Sprouted from dream soil at Midnight Nursery. Casts a soft lavender-berry tint designed
-              to shoo away nightmares.</p>
-            <span class="lamp-toggle-btn">○ Tap to Switch Mode</span>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- Showcase 3: Dream Delivery Routes (Vintage Celestial Dream Atlas) -->
-      <section id="delivery-map" class="showcase-block wrap">
-        <div class="section-lead">
-          <span class="section-eyebrow">Showcase Project 03 · Celestial Cartography</span>
-          <h2 class="section-title">Vintage <em>Dream Atlas</em> & Flight Routes</h2>
-          <p class="section-subtitle">
-            Pip’s nocturnal flight chart across Midnight Town and slumber realms. Click any glowing destination star or
-            launch the flight simulator to inspect manifests, rotate the brass compass, and deliver dreams!
-          </p>
-        </div>
-
-        <div class="delivery-map-card vintage-atlas-card">
-          <!-- Atlas Header Bar -->
-          <div class="atlas-header-bar">
-            <div class="atlas-title-group">
-              <span class="atlas-seal-badge">CHART NO. 1892 · EDITION MIDNIGHT</span>
-              <h3 class="atlas-heading">Nocturnal Celestial Dreamways</h3>
-              <p class="atlas-subtext">Meridian: 17° 17′ IST · Altitude: 180 ft · Winds: Calming Lavender Breeze</p>
-            </div>
-
-            <!-- Compass Rose & Map Controls -->
-            <div class="atlas-hud-controls">
-              <div class="brass-compass" id="brassCompass"
-                title="Vintage Slumber Compass Rose (Needle aligns to active waypoint)">
-                <div class="compass-dial">
-                  <span class="compass-pt n">N</span>
-                  <span class="compass-pt e">E</span>
-                  <span class="compass-pt s">S</span>
-                  <span class="compass-pt w">W</span>
-                  <div class="compass-needle" id="compassNeedle">
-                    <div class="needle-north"></div>
-                    <div class="needle-south"></div>
-                  </div>
-                  <div class="compass-pivot"></div>
-                </div>
-              </div>
-
-              <div class="atlas-sim-actions">
-                <button id="simFlightBtn" class="btn-primary atlas-sim-btn" type="button">
-                  <span>▶ Simulate Full Flight Route</span>
-                </button>
-                <div class="atlas-filter-pills">
-                  <button class="atlas-filter active" data-filter="all" type="button">All Stops</button>
-                  <button class="atlas-filter" data-filter="town" type="button">Town</button>
-                  <button class="atlas-filter" data-filter="wild" type="button">Wilds</button>
-                  <button class="atlas-filter" data-filter="sky" type="button">Sky</button>
-                </div>
-              </div>
-            </div>
+            <!-- Ornate Brass Foot Base -->
+            <div class="lamp-base"></div>
           </div>
 
-          <!-- The Interactive Map Canvas -->
-          <div class="map-canvas-container vintage-atlas-canvas">
-            <svg class="map-svg atlas-svg" viewBox="0 0 900 460" preserveAspectRatio="xMidYMid meet" id="dreamAtlasSvg">
-              <defs>
-                <!-- Parchment Filter & Glow Gradients -->
-                <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#fef08a" stop-opacity="0.9" />
-                  <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.35" />
-                  <stop offset="100%" stop-color="#a34063" stop-opacity="0" />
-                </radialGradient>
-                <linearGradient id="flightTrailGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#fbbf24" />
-                  <stop offset="50%" stop-color="#f472b6" />
-                  <stop offset="100%" stop-color="#60a5fa" />
-                </linearGradient>
-              </defs>
-
-              <!-- Vintage Cartography Border & Grid Lines -->
-              <rect x="15" y="15" width="870" height="430" rx="14" fill="none" stroke="rgba(245, 158, 11, 0.45)"
-                stroke-width="2" stroke-dasharray="8 4" />
-              <rect x="22" y="22" width="856" height="416" rx="10" fill="none" stroke="rgba(163, 64, 99, 0.3)"
-                stroke-width="1" />
-
-              <!-- Longitude & Latitude Graticule Lines -->
-              <g class="graticule" stroke="rgba(245, 158, 11, 0.12)" stroke-width="1" stroke-dasharray="3 3">
-                <line x1="22" y1="120" x2="878" y2="120" />
-                <line x1="22" y1="230" x2="878" y2="230" />
-                <line x1="22" y1="340" x2="878" y2="340" />
-                <line x1="180" y1="22" x2="180" y2="438" />
-                <line x1="360" y1="22" x2="360" y2="438" />
-                <line x1="540" y1="22" x2="540" y2="438" />
-                <line x1="720" y1="22" x2="720" y2="438" />
-              </g>
-
-              <!-- Celestial Constellations in Sky -->
-              <g class="constellation-layer" stroke="rgba(251, 191, 36, 0.3)" stroke-width="1.2">
-                <circle cx="210" cy="65" r="2.5" fill="#fef08a" />
-                <circle cx="250" cy="50" r="2.5" fill="#fef08a" />
-                <circle cx="290" cy="75" r="3" fill="#fef08a" />
-                <circle cx="330" cy="60" r="2.5" fill="#fef08a" />
-                <line x1="210" y1="65" x2="250" y2="50" />
-                <line x1="250" y1="50" x2="290" y2="75" />
-                <line x1="290" y1="75" x2="330" y2="60" />
-                <text x="250" y="92" font-size="9" fill="rgba(245,158,11,0.5)" font-family="'Space Mono', monospace"
-                  letter-spacing="1">URSA SLUMBER</text>
-              </g>
-
-              <!-- Glowing Crescent Moon -->
-              <circle cx="810" cy="85" r="55" fill="url(#moonGlow)" />
-              <path d="M 830,55 A 40,40 0 0,0 830,120 A 30,30 0 0,1 830,55 Z" fill="#fef3c7"
-                filter="drop-shadow(0 0 16px #f59e0b)" />
-              <text x="810" y="145" text-anchor="middle" font-size="10" fill="#f59e0b"
-                font-family="'Space Mono', monospace">MOON HARBOR</text>
-
-              <!-- Vintage Rooftops, Pine Forests, and Sea Waves Artwork -->
-              <!-- Pine Forest Region (West) -->
-              <path d="M 40,360 L 55,320 L 70,360 L 85,310 L 100,360 L 120,315 L 140,360 Z" fill="#064e3b"
-                opacity="0.45" />
-              <path d="M 60,370 L 75,335 L 90,370 L 105,330 L 120,370 Z" fill="#047857" opacity="0.35" />
-              <text x="80" y="385" font-size="10" fill="#10b981" font-family="'Fredoka', sans-serif">Whispering
-                Pines</text>
-
-              <!-- Cobblestone Town Rooftops & Chimneys (Center) -->
-              <polygon points="260,438 260,330 315,260 370,330 370,438" fill="#1e293b" opacity="0.65" />
-              <polygon points="370,438 370,310 435,230 500,310 500,438" fill="#0f172a" opacity="0.8" />
-              <polygon points="500,438 500,340 550,285 600,340 600,438" fill="#1e293b" opacity="0.65" />
-              <!-- Chimneys with warm pink smoke puffs -->
-              <rect x="290" y="235" width="16" height="35" fill="#334155" />
-              <circle cx="298" cy="225" r="8" fill="#f472b6" opacity="0.45" />
-              <circle cx="304" cy="210" r="12" fill="#f472b6" opacity="0.25" />
-              <rect x="470" y="205" width="18" height="40" fill="#334155" />
-              <circle cx="479" cy="195" r="9" fill="#f472b6" opacity="0.5" />
-              <text x="435" y="420" text-anchor="middle" font-size="11" fill="#cbd5e1"
-                font-family="'Fredoka', sans-serif">Midnight Borough</text>
-
-              <!-- Velvet Slumber Ocean Waves (East) -->
-              <path d="M 680,410 Q 720,395 760,410 T 840,410 T 900,410" fill="none" stroke="#60a5fa" stroke-width="2"
-                opacity="0.5" />
-              <path d="M 700,425 Q 740,410 780,425 T 860,425 T 900,425" fill="none" stroke="#60a5fa" stroke-width="1.5"
-                opacity="0.35" />
-              <text x="760" y="390" font-size="10" fill="#93c5fd" font-family="'Fredoka', sans-serif">Velvet Sea</text>
-
-              <!-- Master Curved Flight Path Route -->
-              <path id="masterFlightPath" class="atlas-flight-route"
-                d="M 120,210 Q 180,90 280,150 T 430,120 T 570,200 T 710,130 T 800,240" fill="none"
-                stroke="url(#flightTrailGrad)" stroke-width="3.5" stroke-dasharray="8 6" stroke-linecap="round" />
-
-              <!-- Animated Pip on Cloud Flyer -->
-              <g id="pipCloudFlyer" class="pip-cloud-flyer" transform="translate(120, 210)">
-                <!-- Floating Cloud Body -->
-                <ellipse cx="0" cy="10" rx="26" ry="14" fill="#ffffff"
-                  filter="drop-shadow(0 6px 12px rgba(245,158,11,0.5))" />
-                <circle cx="-12" cy="4" r="12" fill="#fef3c7" />
-                <circle cx="10" cy="2" r="14" fill="#fef3c7" />
-                <!-- Miniature Pip Head -->
-                <circle cx="0" cy="-10" r="13" fill="#fff8f1" stroke="#3d2b24" stroke-width="1.5" />
-                <circle cx="-4" cy="-11" r="2.5" fill="#f59e0b" />
-                <circle cx="4" cy="-11" r="2.5" fill="#f59e0b" />
-                <path d="M -4,-5 Q 0,-2 4,-5" fill="none" stroke="#3d2b24" stroke-width="1.5" stroke-linecap="round" />
-                <!-- Nightcap & Pink Bow -->
-                <path d="M -11,-15 Q 0,-28 14,-22 Q 10,-12 6,-14 Z" fill="#a34063" />
-                <text x="12" y="-20" font-size="10">🎀</text>
-                <!-- Brass Lantern Dangling -->
-                <line x1="-12" y1="2" x2="-14" y2="12" stroke="#d97706" stroke-width="1.5" />
-                <circle cx="-14" cy="14" r="4.5" fill="#fbbf24" />
-              </g>
-
-              <!-- WAYPOINT 1: Midnight Nursery (Base) -->
-              <g class="map-waypoint active" data-stop="stop1" data-cat="town" transform="translate(120, 210)"
-                role="button" tabindex="0" aria-label="Stop 1: Midnight Nursery">
-                <circle class="waypoint-glow" cx="0" cy="0" r="22" fill="#f59e0b" opacity="0.35" />
-                <circle class="waypoint-ring" cx="0" cy="0" r="16" fill="#f59e0b" stroke="#ffffff" stroke-width="3" />
-                <text x="0" y="5" text-anchor="middle" font-size="13" fill="#ffffff">★</text>
-                <rect x="-45" y="24" width="90" height="20" rx="4" fill="rgba(15,23,42,0.85)" stroke="#f59e0b"
-                  stroke-width="1" />
-                <text x="0" y="38" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fef08a"
-                  font-family="'Fredoka', sans-serif">1. Nursery Base</text>
-              </g>
-
-              <!-- WAYPOINT 2: Fluffy Bunny Burrows -->
-              <g class="map-waypoint" data-stop="stop2" data-cat="wild" transform="translate(280, 150)" role="button"
-                tabindex="0" aria-label="Stop 2: Bunny Burrows">
-                <circle class="waypoint-glow" cx="0" cy="0" r="20" fill="#a34063" opacity="0.3" />
-                <circle class="waypoint-ring" cx="0" cy="0" r="15" fill="#a34063" stroke="#ffffff" stroke-width="2.5" />
-                <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff"
-                  font-family="'Space Mono', monospace">2</text>
-                <rect x="-45" y="22" width="90" height="20" rx="4" fill="rgba(15,23,42,0.85)" stroke="#a34063"
-                  stroke-width="1" />
-                <text x="0" y="36" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffd0dc"
-                  font-family="'Fredoka', sans-serif">2. Bunny Burrow</text>
-              </g>
-
-              <!-- WAYPOINT 3: Kitten Crib Attic -->
-              <g class="map-waypoint" data-stop="stop3" data-cat="town" transform="translate(430, 120)" role="button"
-                tabindex="0" aria-label="Stop 3: Kitten Crib">
-                <circle class="waypoint-glow" cx="0" cy="0" r="20" fill="#a34063" opacity="0.3" />
-                <circle class="waypoint-ring" cx="0" cy="0" r="15" fill="#a34063" stroke="#ffffff" stroke-width="2.5" />
-                <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff"
-                  font-family="'Space Mono', monospace">3</text>
-                <rect x="-42" y="22" width="84" height="20" rx="4" fill="rgba(15,23,42,0.85)" stroke="#a34063"
-                  stroke-width="1" />
-                <text x="0" y="36" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffd0dc"
-                  font-family="'Fredoka', sans-serif">3. Kitten Crib</text>
-              </g>
-
-              <!-- WAYPOINT 4: Whispering Pine Hollow -->
-              <g class="map-waypoint" data-stop="stop4" data-cat="wild" transform="translate(570, 200)" role="button"
-                tabindex="0" aria-label="Stop 4: Pine Hollow">
-                <circle class="waypoint-glow" cx="0" cy="0" r="20" fill="#a34063" opacity="0.3" />
-                <circle class="waypoint-ring" cx="0" cy="0" r="15" fill="#a34063" stroke="#ffffff" stroke-width="2.5" />
-                <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff"
-                  font-family="'Space Mono', monospace">4</text>
-                <rect x="-44" y="22" width="88" height="20" rx="4" fill="rgba(15,23,42,0.85)" stroke="#a34063"
-                  stroke-width="1" />
-                <text x="0" y="36" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffd0dc"
-                  font-family="'Fredoka', sans-serif">4. Pine Hollow</text>
-              </g>
-
-              <!-- WAYPOINT 5: The Cloud Nest Observatory -->
-              <g class="map-waypoint" data-stop="stop5" data-cat="sky" transform="translate(710, 130)" role="button"
-                tabindex="0" aria-label="Stop 5: Cloud Nest">
-                <circle class="waypoint-glow" cx="0" cy="0" r="20" fill="#a34063" opacity="0.3" />
-                <circle class="waypoint-ring" cx="0" cy="0" r="15" fill="#a34063" stroke="#ffffff" stroke-width="2.5" />
-                <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff"
-                  font-family="'Space Mono', monospace">5</text>
-                <rect x="-44" y="22" width="88" height="20" rx="4" fill="rgba(15,23,42,0.85)" stroke="#a34063"
-                  stroke-width="1" />
-                <text x="0" y="36" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffd0dc"
-                  font-family="'Fredoka', sans-serif">5. Cloud Nest</text>
-              </g>
-
-              <!-- WAYPOINT 6: Cape Snooze & Starlight Lighthouse -->
-              <g class="map-waypoint" data-stop="stop6" data-cat="sky" transform="translate(800, 240)" role="button"
-                tabindex="0" aria-label="Stop 6: Cape Snooze">
-                <circle class="waypoint-glow" cx="0" cy="0" r="22" fill="#f59e0b" opacity="0.35" />
-                <circle class="waypoint-ring" cx="0" cy="0" r="16" fill="#f59e0b" stroke="#ffffff" stroke-width="3" />
-                <text x="0" y="5" text-anchor="middle" font-size="13" fill="#ffffff">⚓</text>
-                <rect x="-48" y="24" width="96" height="20" rx="4" fill="rgba(15,23,42,0.85)" stroke="#f59e0b"
-                  stroke-width="1" />
-                <text x="0" y="38" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fef08a"
-                  font-family="'Fredoka', sans-serif">6. Cape Snooze</text>
-              </g>
-            </svg>
-
-            <!-- Vintage Flight Dispatch Dossier & Waypoint Inspector -->
-            <div id="mapInfoModal" class="atlas-dossier-card visible">
-              <div class="dossier-ribbon">
-                <span class="dossier-stamp">OFFICIAL DISPATCH</span>
-                <span class="dossier-coords" id="dossierCoords">LAT 12° 24′ N · ALT 180 FT</span>
-              </div>
-
-              <div class="dossier-body">
-                <div class="dossier-header-flex">
-                  <span class="dossier-icon" id="dossierIcon">🏰</span>
-                  <div>
-                    <h4 id="mapStopTitle" class="dossier-station-title">Station 01: Midnight Nursery Atelier</h4>
-                    <span class="dossier-recipient" id="dossierRecipient">Pip's Home Workshop & Stardust Kettles</span>
-                  </div>
-                </div>
-
-                <div class="dossier-grid-strip">
-                  <div class="dossier-spec">
-                    <span class="spec-label">CREATURE RECIPIENTS</span>
-                    <strong class="spec-val" id="dossierCreatures">All Town Little Ones</strong>
-                  </div>
-                  <div class="dossier-spec">
-                    <span class="spec-label">SLEEPINESS LEVEL</span>
-                    <strong class="spec-val" id="dossierSleepLevel">98.4% (Deep Snooze)</strong>
-                  </div>
-                  <div class="dossier-spec">
-                    <span class="spec-label">DREAM PAYLOAD</span>
-                    <strong class="spec-val" id="dossierCargo">12x Bottled Starlight, 4x Lullaby Jars</strong>
-                  </div>
-                </div>
-
-                <div class="dossier-notes-box">
-                  <strong class="notes-caption">Pip's Logbook Recital:</strong>
-                  <p id="mapStopDesc" class="dossier-narrative-text">
-                    “This is where my brass kettles whistle! Before evening flight, I check every corked jar for leaks.
-                    One drop of lavender dew spilled on the rug, and the attic mice slept for 14 hours straight!”
-                  </p>
-                </div>
-
-                <div class="dossier-actions">
-                  <button id="deliverToStationBtn" class="btn-primary deliver-dream-trigger" type="button">
-                    <span>✦ Deliver Dream to this Station (+1 Dream) ✦</span>
-                  </button>
-                  <span class="dossier-status-live" id="dossierDeliveryStatus">● Ready for Nocturnal Drop</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PIP'S SCRIBBLE STUDIO -->
-      <section id="scribble-studio" class="showcase-block wrap">
-        <div class="section-lead">
-          <span class="section-eyebrow">Bonus Game · Tiny Artist Mode 🎨</span>
-          <h2 class="section-title">Pip's <em>Scribble Studio</em></h2>
-          <p class="section-subtitle">
-            Grab a color, wiggle your fingers, and draw absolutely anything!
-            No rules, no mistakes, just baby-sized masterpieces. ♡
-          </p>
-        </div>
-
-        <div class="scribble-card">
-          <div class="scribble-toolbar">
-            <label for="scribbleColor">Your crayon</label>
-            <input id="scribbleColor" type="color" value="#f08bb5">
-
-            <label for="scribbleSize">Crayon size</label>
-            <input id="scribbleSize" type="range" min="2" max="35" value="10">
-
-            <button id="scribbleEraser" type="button">🧽 Eraser</button>
-            <button id="scribbleClear" type="button">🗑️ Start over</button>
-            <button id="scribbleSave" type="button">💌 Save art</button>
-          </div>
-
-          <div class="scribble-canvas-wrap">
-            <canvas id="scribbleCanvas" aria-label="Drawing canvas. Use your mouse, finger, or stylus to draw."
-              role="img"></canvas>
-            <span class="scribble-hint" id="scribbleHint">
-              ✿ Draw something silly here! ✿
+          <div class="lamp-control-panel">
+            <span class="lamp-status-chip" id="lampStatusChip">
+              <span class="chip-glow-dot"></span>
+              <span id="lampStatusText">Midnight Mode Active</span>
             </span>
+            <h3 class="lamp-showcase-title">Midnight Nursery Reading Lamp</h3>
+            <p class="lamp-showcase-desc">
+              Cast in fluted brass with an antique pleated linen shade. Pulling the chain clicks the internal
+              starlight
+              dynamo, transitioning the entire nursery between sunlit twilight and starry midnight.
+            </p>
+            <div class="lamp-actions-row">
+              <button id="lampPullBtn" class="btn-primary lamp-toggle-action" type="button">
+                <span>Pull Chain · Toggle Light / Dark</span>
+                <span class="lamp-btn-icon" aria-hidden="true">💡</span>
+              </button>
+              <span class="lamp-hint-note">❧ Click shade, chain, or button to toggle modes!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Bedside Lanterns that also toggle and shift mood -->
+      <div class="nightlight-grid">
+
+        <!-- Lamp 1: Crescent Porcelain Lantern -->
+        <article class="lamp-card active-lamp" data-lamp="crescent" title="Click to toggle twilight/midnight!">
+          <div class="lamp-image-wrap">
+            <img src="assets/pip_dream_lantern.jpg" alt="Dream porcelain lantern with sleeping crescent moon inside"
+              loading="lazy">
+            <span class="lamp-badge">Pip's Favorite</span>
+          </div>
+          <h3 class="lamp-title">Crescent Moon Lantern</h3>
+          <p class="lamp-desc">Hand-carved frosted porcelain with brass trim. Radiates a comforting golden starlight
+            glow that warms frosty toes.</p>
+          <span class="lamp-toggle-btn">● Glowing Amber · Tap to Switch Mode</span>
+        </article>
+
+        <!-- Lamp 2: Firefly Glass Orb -->
+        <article class="lamp-card" data-lamp="firefly" title="Click to toggle twilight/midnight!">
+          <div class="lamp-image-wrap">
+            <div
+              style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:radial-gradient(circle, #a7f3d0 0%, #064e3b 100%); font-size:3.5rem;">
+              ✨🪲
+            </div>
+            <span class="lamp-badge">Forest Edition</span>
+          </div>
+          <h3 class="lamp-title">Firefly Starlight Orb</h3>
+          <p class="lamp-desc">Bottled forest glow from the Sleepy Pines. Emits a calm emerald twilight perfect for
+            little woodland creatures.</p>
+          <span class="lamp-toggle-btn">○ Tap to Switch Mode</span>
+        </article>
+
+        <!-- Lamp 3: Stardust Mushroom Lamp -->
+        <article class="lamp-card" data-lamp="mushroom" title="Click to toggle twilight/midnight!">
+          <div class="lamp-image-wrap">
+            <div
+              style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:radial-gradient(circle, #fbcfe8 0%, #831843 100%); font-size:3.5rem;">
+              🍄💫
+            </div>
+            <span class="lamp-badge">Berry Dream</span>
+          </div>
+          <h3 class="lamp-title">Stardust Mushroom Lamp</h3>
+          <p class="lamp-desc">Sprouted from dream soil at Midnight Nursery. Casts a soft lavender-berry tint designed
+            to shoo away nightmares.</p>
+          <span class="lamp-toggle-btn">○ Tap to Switch Mode</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Showcase 3: Dream Delivery Routes (Vintage Celestial Dream Atlas) -->
+    <section id="delivery-map" class="showcase-block wrap">
+      <div class="section-lead">
+        <span class="section-eyebrow">Showcase Project 03 · Celestial Cartography</span>
+        <h2 class="section-title">Vintage <em>Dream Atlas</em> & Flight Routes</h2>
+        <p class="section-subtitle">
+          Pip’s nocturnal flight chart across Midnight Town and slumber realms. Click any glowing destination star or
+          launch the flight simulator to inspect manifests, rotate the brass compass, and deliver dreams!
+        </p>
+      </div>
+
+      <div class="delivery-map-card vintage-atlas-card">
+        <!-- Atlas Header Bar -->
+        <div class="atlas-header-bar">
+          <div class="atlas-title-group">
+            <span class="atlas-seal-badge">CHART NO. 1892 · EDITION MIDNIGHT</span>
+            <h3 class="atlas-heading">Nocturnal Celestial Dreamways</h3>
+            <p class="atlas-subtext">Meridian: 17° 17′ IST · Altitude: 180 ft · Winds: Calming Lavender Breeze</p>
           </div>
 
-          <p class="scribble-footer">
-            🖍️ Made with tiny hands and enormous imagination ♡
+          <!-- Compass Rose & Map Controls -->
+          <div class="atlas-hud-controls">
+            <div class="brass-compass" id="brassCompass"
+              title="Vintage Slumber Compass Rose (Needle aligns to active waypoint)">
+              <div class="compass-dial">
+                <span class="compass-pt n">N</span>
+                <span class="compass-pt e">E</span>
+                <span class="compass-pt s">S</span>
+                <span class="compass-pt w">W</span>
+                <div class="compass-needle" id="compassNeedle">
+                  <div class="needle-north"></div>
+                  <div class="needle-south"></div>
+                </div>
+                <div class="compass-pivot"></div>
+              </div>
+            </div>
+
+            <div class="atlas-sim-actions">
+              <button id="simFlightBtn" class="btn-primary atlas-sim-btn" type="button">
+                <span>▶ Simulate Full Flight Route</span>
+              </button>
+              <div class="atlas-filter-pills">
+                <button class="atlas-filter active" data-filter="all" type="button">All Stops</button>
+                <button class="atlas-filter" data-filter="town" type="button">Town</button>
+                <button class="atlas-filter" data-filter="wild" type="button">Wilds</button>
+                <button class="atlas-filter" data-filter="sky" type="button">Sky</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Interactive Map Canvas -->
+        <div class="map-canvas-container vintage-atlas-canvas">
+          <svg class="map-svg atlas-svg" viewBox="0 0 900 460" preserveAspectRatio="xMidYMid meet" id="dreamAtlasSvg">
+            <defs>
+              <!-- Parchment Filter & Glow Gradients -->
+              <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fef08a" stop-opacity="0.9" />
+                <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.35" />
+                <stop offset="100%" stop-color="#a34063" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="flightTrailGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fbbf24" />
+                <stop offset="50%" stop-color="#f472b6" />
+                <stop offset="100%" stop-color="#60a5fa" />
+              </linearGradient>
+            </defs>
+
+            <!-- Vintage Cartography Border & Grid Lines -->
+            <rect x="15" y="15" width="870" height="430" rx="14" fill="none" stroke="rgba(245, 158, 11, 0.45)"
+              stroke-width="2" stroke-dasharray="8 4" />
+            <rect x="22" y="22" width="856" height="416" rx="10" fill="none" stroke="rgba(163, 64, 99, 0.3)"
+              stroke-width="1" />
+
+            <!-- Longitude & Latitude Graticule Lines -->
+            <g class="graticule" stroke="rgba(245, 158, 11, 0.12)" stroke-width="1" stroke-dasharray="3 3">
+              <line x1="22" y1="120" x2="878" y2="120" />
+              <line x1="22" y1="230" x2="878" y2="230" />
+              <line x1="22" y1="340" x2="878" y2="340" />
+              <line x1="180" y1="22" x2="180" y2="438" />
+              <line x1="360" y1="22" x2="360" y2="438" />
+              <line x1="540" y1="22" x2="540" y2="438" />
+              <line x1="720" y1="22" x2="720" y2="438" />
+            </g>
+
+            <!-- Celestial Constellations in Sky -->
+            <g class="constellation-layer" stroke="rgba(251, 191, 36, 0.3)" stroke-width="1.2">
+              <circle cx="210" cy="65" r="2.5" fill="#fef08a" />
+              <circle cx="250" cy="50" r="2.5" fill="#fef08a" />
+              <circle cx="290" cy="75" r="3" fill="#fef08a" />
+              <circle cx="330" cy="60" r="2.5" fill="#fef08a" />
+              <line x1="210" y1="65" x2="250" y2="50" />
+              <line x1="250" y1="50" x2="290" y2="75" />
+              <line x1="290" y1="75" x2="330" y2="60" />
+              <text x="250" y="92" font-size="9" fill="rgba(245,158,11,0.5)" font-family="'Space Mono', monospace"
+                letter-spacing="1">URSA SLUMBER</text>
+            </g>
+
+            <!-- Glowing Crescent Moon -->
+            <circle cx="810" cy="85" r="55" fill="url(#moonGlow)" />
+            <path d="M 830,55 A 40,40 0 0,0 830,120 A 30,30 0 0,1 830,55 Z" fill="#fef3c7"
+              filter="drop-shadow(0 0 16px #f59e0b)" />
+            <text x="810" y="145" text-anchor="middle" font-size="10" fill="#f59e0b"
+              font-family="'Space Mono', monospace">MOON HARBOR</text>
+
+            <!-- Vintage Rooftops, Pine Forests, and Sea Waves Artwork -->
+            <!-- Pine Forest Region (West) -->
+            <path d="M 40,360 L 55,320 L 70,360 L 85,310 L 100,360 L 120,315 L 140,360 Z" fill="#064e3b"
+              opacity="0.45" />
+            <path d="M 60,370 L 75,335 L 90,370 L 105,330 L 120,370 Z" fill="#047857" opacity="0.35" />
+            <text x="80" y="385" font-size="10" fill="#10b981" font-family="'Fredoka', sans-serif">Whispering
+              Pines</text>
+
+            <!-- Cobblestone Town Rooftops & Chimneys (Center) -->
+            <polygon points="260,438 260,330 315,260 370,330 370,438" fill="#1e293b" opacity="0.65" />
+            <polygon points="370,438 370,310 435,230 500,310 500,438" fill="#0f172a" opacity="0.8" />
+            <polygon points="500,438 500,340 550,285 600,340 600,438" fill="#1e293b" opacity="0.65" />
+            <!-- Chimneys with warm pink smoke puffs -->
+            <rect x="290" y="235" width="16" height="35" fill="#334155" />
+            <circle cx="298" cy="225" r="8" fill="#f472b6" opacity="0.45" />
+            <circle cx="304" cy="210" r="12" fill="#f472b6" opacity="0.25" />
+            <rect x="470" y="205" width="18" height="40" fill="#334155" />
+            <circle cx="479" cy="195" r="9" fill="#f472b6" opacity="0.5" />
+            <text x="435" y="420" text-anchor="middle" font-size="11" fill="#cbd5e1"
+              font-family="'Fredoka', sans-serif">Midnight Borough</text>
+
+            <!-- Velvet Slumber Ocean Waves (East) -->
+            <path d="M 680,410 Q 720,395 760,410 T 840,410 T 900,410" fill="none" stroke="#60a5fa" stroke-width="2"
+              opacity="0.5" />
+            <path d="M 700,425 Q 740,410 780,425 T 860,425 T 900,425" fill="none" stroke="#60a5fa" stroke-width="1.5"
+              opacity="0.35" />
+            <text x="760" y="390" font-size="10" fill="#93c5fd" font-family="'Fredoka', sans-serif">Velvet Sea</text>
+
+            <!-- Master Curved Flight Path Route -->
+            <path id="masterFlightPath" class="atlas-flight-route"
+              d="M 120,210 Q 180,90 280,150 T 430,120 T 570,200 T 710,130 T 800,240" fill="none"
+              stroke="url(#flightTrailGrad)" stroke-width="3.5" stroke-dasharray="8 6" stroke-linecap="round" />
+
+            <!-- Animated Pip on Cloud Flyer -->
+            <g id="pipCloudFlyer" class="pip-cloud-flyer" transform="translate(120, 210)">
+              <!-- Floating Cloud Body -->
+              <ellipse cx="0" cy="10" rx="26" ry="14" fill="#ffffff"
+                filter="drop-shadow(0 6px 12px rgba(245,158,11,0.5))" />
+              <circle cx="-12" cy="4" r="12" fill="#fef3c7" />
+              <circle cx="10" cy="2" r="14" fill="#fef3c7" />
+              <!-- Miniature Pip Head -->
+              <circle cx="0" cy="-10" r="13" fill="#fff8f1" stroke="#3d2b24" stroke-width="1.5" />
+              <circle cx="-4" cy="-11" r="2.5" fill="#f59e0b" />
+              <circle cx="4" cy="-11" r="2.5" fill="#f59e0b" />
+              <path d="M -4,-5 Q 0,-2 4,-5" fill="none" stroke="#3d2b24" stroke-width="1.5" stroke-linecap="round" />
+              <!-- Nightcap & Pink Bow -->
+              <path d="M -11,-15 Q 0,-28 14,-22 Q 10,-12 6,-14 Z" fill="#a34063" />
+              <text x="12" y="-20" font-size="10">🎀</text>
+              <!-- Brass Lantern Dangling -->
+              <line x1="-12" y1="2" x2="-14" y2="12" stroke="#d97706" stroke-width="1.5" />
+              <circle cx="-14" cy="14" r="4.5" fill="#fbbf24" />
+            </g>
+
+            <!-- WAYPOINT 1: Midnight Nursery (Base) -->
+            <g class="map-waypoint active" data-stop="stop1" data-cat="town" transform="translate(120, 210)"
+              role="button" tabindex="0" aria-label="Stop 1: Midnight Nursery">
+              <circle class="waypoint-glow" cx="0" cy="0" r="22" fill="#f59e0b" opacity="0.35" />
+              <circle class="waypoint-ring" cx="0" cy="0" r="16" fill="#f59e0b" stroke="#ffffff" stroke-width="3" />
+              <text x="0" y="5" text-anchor="middle" font-size="13" fill="#ffffff">★</text>
+              <rect x="-45" y="24" width="90" height="20" rx="4" fill="rgba(15,23,42,0.85)" stroke="#f59e0b"
+                stroke-width="1" />
+              <text x="0" y="38" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fef08a"
+                font-family="'Fredoka', sans-serif">1. Nursery Base</text>
+            </g>
+
+            <!-- WAYPOINT 2: Fluffy Bunny Burrows -->
+            <g class="map-waypoint" data-stop="stop2" data-cat="wild" transform="translate(280, 150)" role="button"
+              tabindex="0" aria-label="Stop 2: Bunny Burrows">
+              <circle class="waypoint-glow" cx="0" cy="0" r="20" fill="#a34063" opacity="0.3" />
+              <circle class="waypoint-ring" cx="0" cy="0" r="15" fill="#a34063" stroke="#ffffff" stroke-width="2.5" />
+              <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff"
+                font-family="'Space Mono', monospace">2</text>
+              <rect x="-45" y="22" width="90" height="20" rx="4" fill="rgba(15,23,42,0.85)" stroke="#a34063"
+                stroke-width="1" />
+              <text x="0" y="36" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffd0dc"
+                font-family="'Fredoka', sans-serif">2. Bunny Burrow</text>
+            </g>
+
+            <!-- WAYPOINT 3: Kitten Crib Attic -->
+            <g class="map-waypoint" data-stop="stop3" data-cat="town" transform="translate(430, 120)" role="button"
+              tabindex="0" aria-label="Stop 3: Kitten Crib">
+              <circle class="waypoint-glow" cx="0" cy="0" r="20" fill="#a34063" opacity="0.3" />
+              <circle class="waypoint-ring" cx="0" cy="0" r="15" fill="#a34063" stroke="#ffffff" stroke-width="2.5" />
+              <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff"
+                font-family="'Space Mono', monospace">3</text>
+              <rect x="-42" y="22" width="84" height="20" rx="4" fill="rgba(15,23,42,0.85)" stroke="#a34063"
+                stroke-width="1" />
+              <text x="0" y="36" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffd0dc"
+                font-family="'Fredoka', sans-serif">3. Kitten Crib</text>
+            </g>
+
+            <!-- WAYPOINT 4: Whispering Pine Hollow -->
+            <g class="map-waypoint" data-stop="stop4" data-cat="wild" transform="translate(570, 200)" role="button"
+              tabindex="0" aria-label="Stop 4: Pine Hollow">
+              <circle class="waypoint-glow" cx="0" cy="0" r="20" fill="#a34063" opacity="0.3" />
+              <circle class="waypoint-ring" cx="0" cy="0" r="15" fill="#a34063" stroke="#ffffff" stroke-width="2.5" />
+              <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff"
+                font-family="'Space Mono', monospace">4</text>
+              <rect x="-44" y="22" width="88" height="20" rx="4" fill="rgba(15,23,42,0.85)" stroke="#a34063"
+                stroke-width="1" />
+              <text x="0" y="36" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffd0dc"
+                font-family="'Fredoka', sans-serif">4. Pine Hollow</text>
+            </g>
+
+            <!-- WAYPOINT 5: The Cloud Nest Observatory -->
+            <g class="map-waypoint" data-stop="stop5" data-cat="sky" transform="translate(710, 130)" role="button"
+              tabindex="0" aria-label="Stop 5: Cloud Nest">
+              <circle class="waypoint-glow" cx="0" cy="0" r="20" fill="#a34063" opacity="0.3" />
+              <circle class="waypoint-ring" cx="0" cy="0" r="15" fill="#a34063" stroke="#ffffff" stroke-width="2.5" />
+              <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff"
+                font-family="'Space Mono', monospace">5</text>
+              <rect x="-44" y="22" width="88" height="20" rx="4" fill="rgba(15,23,42,0.85)" stroke="#a34063"
+                stroke-width="1" />
+              <text x="0" y="36" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffd0dc"
+                font-family="'Fredoka', sans-serif">5. Cloud Nest</text>
+            </g>
+
+            <!-- WAYPOINT 6: Cape Snooze & Starlight Lighthouse -->
+            <g class="map-waypoint" data-stop="stop6" data-cat="sky" transform="translate(800, 240)" role="button"
+              tabindex="0" aria-label="Stop 6: Cape Snooze">
+              <circle class="waypoint-glow" cx="0" cy="0" r="22" fill="#f59e0b" opacity="0.35" />
+              <circle class="waypoint-ring" cx="0" cy="0" r="16" fill="#f59e0b" stroke="#ffffff" stroke-width="3" />
+              <text x="0" y="5" text-anchor="middle" font-size="13" fill="#ffffff">⚓</text>
+              <rect x="-48" y="24" width="96" height="20" rx="4" fill="rgba(15,23,42,0.85)" stroke="#f59e0b"
+                stroke-width="1" />
+              <text x="0" y="38" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fef08a"
+                font-family="'Fredoka', sans-serif">6. Cape Snooze</text>
+            </g>
+          </svg>
+
+          <!-- Vintage Flight Dispatch Dossier & Waypoint Inspector -->
+          <div id="mapInfoModal" class="atlas-dossier-card visible">
+            <div class="dossier-ribbon">
+              <span class="dossier-stamp">OFFICIAL DISPATCH</span>
+              <span class="dossier-coords" id="dossierCoords">LAT 12° 24′ N · ALT 180 FT</span>
+            </div>
+
+            <div class="dossier-body">
+              <div class="dossier-header-flex">
+                <span class="dossier-icon" id="dossierIcon">🏰</span>
+                <div>
+                  <h4 id="mapStopTitle" class="dossier-station-title">Station 01: Midnight Nursery Atelier</h4>
+                  <span class="dossier-recipient" id="dossierRecipient">Pip's Home Workshop & Stardust Kettles</span>
+                </div>
+              </div>
+
+              <div class="dossier-grid-strip">
+                <div class="dossier-spec">
+                  <span class="spec-label">CREATURE RECIPIENTS</span>
+                  <strong class="spec-val" id="dossierCreatures">All Town Little Ones</strong>
+                </div>
+                <div class="dossier-spec">
+                  <span class="spec-label">SLEEPINESS LEVEL</span>
+                  <strong class="spec-val" id="dossierSleepLevel">98.4% (Deep Snooze)</strong>
+                </div>
+                <div class="dossier-spec">
+                  <span class="spec-label">DREAM PAYLOAD</span>
+                  <strong class="spec-val" id="dossierCargo">12x Bottled Starlight, 4x Lullaby Jars</strong>
+                </div>
+              </div>
+
+              <div class="dossier-notes-box">
+                <strong class="notes-caption">Pip's Logbook Recital:</strong>
+                <p id="mapStopDesc" class="dossier-narrative-text">
+                  “This is where my brass kettles whistle! Before evening flight, I check every corked jar for leaks.
+                  One drop of lavender dew spilled on the rug, and the attic mice slept for 14 hours straight!”
+                </p>
+              </div>
+
+              <div class="dossier-actions">
+                <button id="deliverToStationBtn" class="btn-primary deliver-dream-trigger" type="button">
+                  <span>✦ Deliver Dream to this Station (+1 Dream) ✦</span>
+                </button>
+                <span class="dossier-status-live" id="dossierDeliveryStatus">● Ready for Nocturnal Drop</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIP'S SCRIBBLE STUDIO -->
+    <section id="scribble-studio" class="showcase-block wrap">
+      <div class="section-lead">
+        <span class="section-eyebrow">Bonus Game · Tiny Artist Mode 🎨</span>
+        <h2 class="section-title">Pip's <em>Scribble Studio</em></h2>
+        <p class="section-subtitle">
+          Grab a color, wiggle your fingers, and draw absolutely anything!
+          No rules, no mistakes, just baby-sized masterpieces. ♡
+        </p>
+      </div>
+
+      <div class="scribble-card">
+        <div class="scribble-toolbar">
+          <label for="scribbleColor">Your crayon</label>
+          <input id="scribbleColor" type="color" value="#f08bb5">
+
+          <label for="scribbleSize">Crayon size</label>
+          <input id="scribbleSize" type="range" min="2" max="35" value="10">
+
+          <button id="scribbleEraser" type="button">🧽 Eraser</button>
+          <button id="scribbleClear" type="button">🗑️ Start over</button>
+          <button id="scribbleSave" type="button">💌 Save art</button>
+        </div>
+
+        <div class="scribble-canvas-wrap">
+          <canvas id="scribbleCanvas" aria-label="Drawing canvas. Use your mouse, finger, or stylus to draw."
+            role="img"></canvas>
+          <span class="scribble-hint" id="scribbleHint">
+            ✿ Draw something silly here! ✿
+          </span>
+        </div>
+
+        <p class="scribble-footer">
+          🖍️ Made with tiny hands and enormous imagination ♡
+        </p>
+      </div>
+    </section>
+
+
+    <!-- Showcase 4 & 5: Nursery Toys & Growth Chart -->
+    <section class="wrap">
+      <div class="playroom-grid">
+
+
+        <div class="blocks-sandbox" id="blocksSandbox">
+          <h4 class="blocks-title">🧸 Pip's Tiny Block Party!</h4>
+          <p class="blocks-hint">Pick a block and drag it around! ♡</p>
+
+          <div class="blocks-toolbar">
+            <button type="button" id="addBuildingBlock">＋ Block</button>
+            <button type="button" id="rotateBuildingBlock">↻ Rotate</button>
+            <button type="button" id="knockBuildingBlocks">💥 Oops!</button>
+            <button type="button" id="resetBuildingBlocks">↺ Reset</button>
+          </div>
+
+          <div class="blocks-palette">
+            <button type="button" class="building-color" data-color="#ffabc8" aria-label="Pink">🩷</button>
+            <button type="button" class="building-color" data-color="#a9d9ff" aria-label="Blue">🩵</button>
+            <button type="button" class="building-color" data-color="#ffe08a" aria-label="Yellow">💛</button>
+            <button type="button" class="building-color" data-color="#cbb8ff" aria-label="Purple">💜</button>
+            <button type="button" class="building-color" data-color="#bde8b5" aria-label="Green">💚</button>
+          </div>
+
+          <div id="blocksBuildingArea" class="blocks-building-area">
+            <div class="building-block" data-color="#ffabc8">H</div>
+            <div class="building-block" data-color="#a9d9ff">A</div>
+            <div class="building-block" data-color="#ffe08a">X</div>
+            <div class="building-block" data-color="#cbb8ff">★</div>
+            <div class="building-block" data-color="#bde8b5">☾</div>
+            <div class="blocks-floor-label">PIP'S TINY BUILDING ZONE ♡</div>
+          </div>
+
+          <p id="buildingBlocksMessage" aria-live="polite">
+            Stack 'em high, baby! ♡
           </p>
         </div>
-      </section>
 
+        <div class="growth-chart-card nursery-growth-card">
+          <span class="section-eyebrow">Showcase Project 05</span>
+          <h3>🌙 Pip's Growth Chart</h3>
+          <p class="growth-intro">
+            Milestones marked on the Midnight Nursery wall as Pip mastered dream crafting.
+          </p>
 
-      <!-- Showcase 4 & 5: Nursery Toys & Growth Chart -->
-      <section class="wrap">
-        <div class="playroom-grid">
+          <div class="milestone-wall">
 
-
-          <div class="blocks-sandbox" id="blocksSandbox">
-            <h4 class="blocks-title">🧸 Pip's Tiny Block Party!</h4>
-            <p class="blocks-hint">Pick a block and drag it around! ♡</p>
-
-            <div class="blocks-toolbar">
-              <button type="button" id="addBuildingBlock">＋ Block</button>
-              <button type="button" id="rotateBuildingBlock">↻ Rotate</button>
-              <button type="button" id="knockBuildingBlocks">💥 Oops!</button>
-              <button type="button" id="resetBuildingBlocks">↺ Reset</button>
+            <div class="milestone-ruler">
+              <span>42"</span>
+              <span>36"</span>
+              <span>30"</span>
+              <span>24"</span>
+              <span>18"</span>
             </div>
 
-            <div class="blocks-palette">
-              <button type="button" class="building-color" data-color="#ffabc8" aria-label="Pink">🩷</button>
-              <button type="button" class="building-color" data-color="#a9d9ff" aria-label="Blue">🩵</button>
-              <button type="button" class="building-color" data-color="#ffe08a" aria-label="Yellow">💛</button>
-              <button type="button" class="building-color" data-color="#cbb8ff" aria-label="Purple">💜</button>
-              <button type="button" class="building-color" data-color="#bde8b5" aria-label="Green">💚</button>
-            </div>
+            <div class="milestone-list">
 
-            <div id="blocksBuildingArea" class="blocks-building-area">
-              <div class="building-block" data-color="#ffabc8">H</div>
-              <div class="building-block" data-color="#a9d9ff">A</div>
-              <div class="building-block" data-color="#ffe08a">X</div>
-              <div class="building-block" data-color="#cbb8ff">★</div>
-              <div class="building-block" data-color="#bde8b5">☾</div>
-              <div class="blocks-floor-label">PIP'S TINY BUILDING ZONE ♡</div>
-            </div>
+              <article class="pip-milestone milestone-green">
+                <span class="milestone-star">✦</span>
+                <span class="milestone-inch">42 INCHES</span>
+                <h4>Keeper of the Midnight Sky</h4>
+                <p>Earned the dream workshop keys. Immediately installed a snack drawer.</p>
+                <span class="milestone-sticker">⭐</span>
+              </article>
+              <article class="pip-milestone milestone-yellow">
+                <span class="milestone-star">✧</span>
+                <span class="milestone-inch">36 INCHES</span>
+                <h4>Certified Nightmare Tamer</h4>
+                <p>Turned seven nightmares into fluffy sheep. One is still missing.</p>
+                <span class="milestone-sticker">🐑</span>
+              </article>
+              <article class="pip-milestone milestone-purple">
+                <span class="milestone-star">✦</span>
+                <span class="milestone-inch">30 INCHES</span>
+                <h4>Solo Rooftop Flight License</h4>
+                <p>Graduated to Junior Dream Engineer at Midnight Nursery.</p>
+                <span class="milestone-sticker">🌙</span>
+              </article>
 
-            <p id="buildingBlocksMessage" aria-live="polite">
-              Stack 'em high, baby! ♡
-            </p>
+              <article class="pip-milestone milestone-blue">
+                <span class="milestone-star">✧</span>
+                <span class="milestone-inch">24 INCHES</span>
+                <h4>Lullaby Synthesizer Apprentice</h4>
+                <p>Tuned the first pentatonic music box to lullaby frequency.</p>
+                <span class="milestone-sticker">🎵</span>
+              </article>
+              <article class="pip-milestone milestone-pink">
+                <span class="milestone-star">✦</span>
+                <span class="milestone-inch">18 INCHES</span>
+                <h4>First Baby Giggle</h4>
+                <p>Discovered that tickling cloud edges produces pink rain.</p>
+                <span class="milestone-sticker">☁️</span>
+              </article>
+
+            </div>
           </div>
 
-          <div class="growth-chart-card nursery-growth-card">
-            <span class="section-eyebrow">Showcase Project 05</span>
-            <h3>🌙 Pip's Growth Chart</h3>
-            <p class="growth-intro">
-              Milestones marked on the Midnight Nursery wall as Pip mastered dream crafting.
-            </p>
-
-            <div class="milestone-wall">
-
-              <div class="milestone-ruler">
-                <span>42"</span>
-                <span>36"</span>
-                <span>30"</span>
-                <span>24"</span>
-                <span>18"</span>
-              </div>
-
-              <div class="milestone-list">
-
-                <article class="pip-milestone milestone-green">
-                  <span class="milestone-star">✦</span>
-                  <span class="milestone-inch">42 INCHES</span>
-                  <h4>Keeper of the Midnight Sky</h4>
-                  <p>Earned the dream workshop keys. Immediately installed a snack drawer.</p>
-                  <span class="milestone-sticker">⭐</span>
-                </article>
-                <article class="pip-milestone milestone-yellow">
-                  <span class="milestone-star">✧</span>
-                  <span class="milestone-inch">36 INCHES</span>
-                  <h4>Certified Nightmare Tamer</h4>
-                  <p>Turned seven nightmares into fluffy sheep. One is still missing.</p>
-                  <span class="milestone-sticker">🐑</span>
-                </article>
-                <article class="pip-milestone milestone-purple">
-                  <span class="milestone-star">✦</span>
-                  <span class="milestone-inch">30 INCHES</span>
-                  <h4>Solo Rooftop Flight License</h4>
-                  <p>Graduated to Junior Dream Engineer at Midnight Nursery.</p>
-                  <span class="milestone-sticker">🌙</span>
-                </article>
-
-                <article class="pip-milestone milestone-blue">
-                  <span class="milestone-star">✧</span>
-                  <span class="milestone-inch">24 INCHES</span>
-                  <h4>Lullaby Synthesizer Apprentice</h4>
-                  <p>Tuned the first pentatonic music box to lullaby frequency.</p>
-                  <span class="milestone-sticker">🎵</span>
-                </article>
-                <article class="pip-milestone milestone-pink">
-                  <span class="milestone-star">✦</span>
-                  <span class="milestone-inch">18 INCHES</span>
-                  <h4>First Baby Giggle</h4>
-                  <p>Discovered that tickling cloud edges produces pink rain.</p>
-                  <span class="milestone-sticker">☁️</span>
-                </article>
-
-              </div>
-            </div>
-
-            <p class="growth-footer">♡ little dreams, big achievements ♡</p>
-          </div>
-
-
+          <p class="growth-footer">♡ little dreams, big achievements ♡</p>
         </div>
-      </section>
 
-      <!-- ======================================================================
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
          SECTION 3: ORIGIN BEDTIME STORYBOOK (3D FLIPPING BOOK & PIP'S RECITAL)
          Answers: What Pip's story is — Recited directly by Pip
          ====================================================================== -->
-      <section id="storybook" class="showcase-block wrap">
-        <div class="section-lead">
-          <span class="section-eyebrow">Section 03 · Antique Bedtime Tome</span>
-          <h2 class="section-title">Pip’s <em>Storybook</em> & Backstory</h2>
-          <p class="section-subtitle">
-            Recited by Pip! Turn the deckled parchment pages or jump between chapters to discover how a gentle skull
-            baby
-            became the Junior Dream Engineer of Midnight Nursery.
-          </p>
-        </div>
+    <section id="storybook" class="showcase-block wrap">
+      <div class="section-lead">
+        <span class="section-eyebrow">Section 03 · Antique Bedtime Tome</span>
+        <h2 class="section-title">Pip’s <em>Storybook</em> & Backstory</h2>
+        <p class="section-subtitle">
+          Recited by Pip! Turn the deckled parchment pages or jump between chapters to discover how a gentle skull
+          baby
+          became the Junior Dream Engineer of Midnight Nursery.
+        </p>
+      </div>
 
-        <!-- Vintage Open Book Stage -->
-        <div class="vintage-book-container" id="pipStorybookContainer">
+      <!-- Vintage Open Book Stage -->
+      <div class="vintage-book-container" id="pipStorybookContainer">
 
-          <!-- Book Ribbon Bookmark Navigation -->
-          <nav class="book-ribbon-nav" aria-label="Storybook Chapters">
-            <span class="ribbon-label">Chapters:</span>
-            <div class="ribbon-tabs" id="bookChapterTabs">
-              <button class="ribbon-tab active" data-page="0" type="button">I · Attic Cradle</button>
-              <button class="ribbon-tab" data-page="1" type="button">II · Village Tears</button>
-              <button class="ribbon-tab" data-page="2" type="button">III · Brass Kettles</button>
-              <button class="ribbon-tab" data-page="3" type="button">IV · Council Exam</button>
-              <button class="ribbon-tab" data-page="4" type="button">V · Golden Wrench</button>
-              <button class="ribbon-tab" data-page="5" type="button">VI · Bedtime Flight</button>
-            </div>
-          </nav>
+        <!-- Book Ribbon Bookmark Navigation -->
+        <nav class="book-ribbon-nav" aria-label="Storybook Chapters">
+          <span class="ribbon-label">Chapters:</span>
+          <div class="ribbon-tabs" id="bookChapterTabs">
+            <button class="ribbon-tab active" data-page="0" type="button">I · Attic Cradle</button>
+            <button class="ribbon-tab" data-page="1" type="button">II · Village Tears</button>
+            <button class="ribbon-tab" data-page="2" type="button">III · Brass Kettles</button>
+            <button class="ribbon-tab" data-page="3" type="button">IV · Council Exam</button>
+            <button class="ribbon-tab" data-page="4" type="button">V · Golden Wrench</button>
+            <button class="ribbon-tab" data-page="5" type="button">VI · Bedtime Flight</button>
+          </div>
+        </nav>
 
-          <!-- The Physical 3D Storybook Volume -->
-          <div class="vintage-storybook" id="vintageStorybook">
-            <!-- Leather Hardcover Trim & Brass Corners -->
-            <div class="book-cover-trim">
-              <span class="book-corner top-left"></span>
-              <span class="book-corner top-right"></span>
-              <span class="book-corner bottom-left"></span>
-              <span class="book-corner bottom-right"></span>
-              <div class="book-spine-crease"></div>
-              <div class="book-hanging-ribbon"></div>
-            </div>
+        <!-- The Physical 3D Storybook Volume -->
+        <div class="vintage-storybook" id="vintageStorybook">
+          <!-- Leather Hardcover Trim & Brass Corners -->
+          <div class="book-cover-trim">
+            <span class="book-corner top-left"></span>
+            <span class="book-corner top-right"></span>
+            <span class="book-corner bottom-left"></span>
+            <span class="book-corner bottom-right"></span>
+            <div class="book-spine-crease"></div>
+            <div class="book-hanging-ribbon"></div>
+          </div>
 
-            <!-- Left Page Spread -->
-            <div class="book-page book-page-left" id="bookPageLeft">
-              <div class="page-header-strip">
-                <span class="page-chap-num" id="leftChapNum">Chapter I</span>
-                <span class="page-folio-title">Midnight Nursery Archives</span>
-              </div>
-
-              <div class="page-content" id="leftPageContent">
-                <!-- Content injected dynamically via app.js -->
-              </div>
-
-              <div class="page-footer-strip">
-                <span class="page-num" id="leftPageNum">Page 1</span>
-                <button class="page-nav-turn prev-btn" id="prevPageBtn" type="button"
-                  aria-label="Turn to previous page">
-                  <span>⮜ Turn Back</span>
-                </button>
-              </div>
+          <!-- Left Page Spread -->
+          <div class="book-page book-page-left" id="bookPageLeft">
+            <div class="page-header-strip">
+              <span class="page-chap-num" id="leftChapNum">Chapter I</span>
+              <span class="page-folio-title">Midnight Nursery Archives</span>
             </div>
 
-            <!-- Right Page Spread -->
-            <div class="book-page book-page-right" id="bookPageRight">
-              <div class="page-header-strip">
-                <span class="page-chap-num" id="rightChapNum">Dispatch</span>
-                <span class="page-folio-title">Recited by Pip the Skull Baby</span>
-              </div>
-
-              <div class="page-content" id="rightPageContent">
-                <!-- Content injected dynamically via app.js -->
-              </div>
-
-              <div class="page-footer-strip">
-                <button class="page-nav-turn next-btn" id="nextPageBtn" type="button" aria-label="Turn to next page">
-                  <span>Turn Page ⮞</span>
-                </button>
-                <span class="page-num" id="rightPageNum">Page 2</span>
-              </div>
-
-              <!-- Dog-Ear Clickable Corner for Tactile Turning -->
-              <div class="page-dog-ear" id="pageDogEar" title="Click corner to turn page!"></div>
+            <div class="page-content" id="leftPageContent">
+              <!-- Content injected dynamically via app.js -->
             </div>
 
-            <!-- 3D Animated Flipping Leaf (Active during turn) -->
-            <div class="book-page-leaf-flipping" id="flippingLeaf" aria-hidden="true">
-              <div class="leaf-front" id="leafFront"></div>
-              <div class="leaf-back" id="leafBack"></div>
+            <div class="page-footer-strip">
+              <span class="page-num" id="leftPageNum">Page 1</span>
+              <button class="page-nav-turn prev-btn" id="prevPageBtn" type="button" aria-label="Turn to previous page">
+                <span>⮜ Turn Back</span>
+              </button>
             </div>
           </div>
 
-          <!-- Book Reading Controls Bar -->
-          <div class="book-controls-bar">
-            <button class="book-ctrl-btn" id="bookTurnPrev" type="button">
-              <span>⮜ Previous Chapter</span>
-            </button>
-
-            <div class="book-progress-indicator">
-              <span id="bookPageIndicator">Chapter 1 of 6</span>
-              <div class="book-progress-dots" id="bookProgressDots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
+          <!-- Right Page Spread -->
+          <div class="book-page book-page-right" id="bookPageRight">
+            <div class="page-header-strip">
+              <span class="page-chap-num" id="rightChapNum">Dispatch</span>
+              <span class="page-folio-title">Recited by Pip the Skull Baby</span>
             </div>
 
-            <button class="book-ctrl-btn" id="bookTurnNext" type="button">
-              <span>Next Chapter ⮞</span>
-            </button>
+            <div class="page-content" id="rightPageContent">
+              <!-- Content injected dynamically via app.js -->
+            </div>
+
+            <div class="page-footer-strip">
+              <button class="page-nav-turn next-btn" id="nextPageBtn" type="button" aria-label="Turn to next page">
+                <span>Turn Page ⮞</span>
+              </button>
+              <span class="page-num" id="rightPageNum">Page 2</span>
+            </div>
+
+            <!-- Dog-Ear Clickable Corner for Tactile Turning -->
+            <div class="page-dog-ear" id="pageDogEar" title="Click corner to turn page!"></div>
           </div>
 
+          <!-- 3D Animated Flipping Leaf (Active during turn) -->
+          <div class="book-page-leaf-flipping" id="flippingLeaf" aria-hidden="true">
+            <div class="leaf-front" id="leafFront"></div>
+            <div class="leaf-back" id="leafBack"></div>
+          </div>
         </div>
-      </section>
 
-      <!-- ======================================================================
+        <!-- Book Reading Controls Bar -->
+        <div class="book-controls-bar">
+          <button class="book-ctrl-btn" id="bookTurnPrev" type="button">
+            <span>⮜ Previous Chapter</span>
+          </button>
+
+          <div class="book-progress-indicator">
+            <span id="bookPageIndicator">Chapter 1 of 6</span>
+            <div class="book-progress-dots" id="bookProgressDots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+
+          <button class="book-ctrl-btn" id="bookTurnNext" type="button">
+            <span>Next Chapter ⮞</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
          SECTION 4: BONUS SIDE QUESTS (+13 PTS TOTAL)
          1. Live Guestbook (+2 pts)
          2. Hit Counter Odometer (+1 pt)
          ====================================================================== -->
-      <section id="guestbook" class="showcase-block wrap">
-        <div class="sidequests-grid">
+    <section id="guestbook" class="showcase-block wrap">
+      <div class="sidequests-grid">
 
-          <!-- Live Dream Guestbook (+2 pts) -->
-          <div class="guestbook-card">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-              <span class="section-eyebrow">Side Quest (+2 pts)</span>
-              <span style="font-family:var(--font-mono); font-size:0.75rem; color:#10b981; font-weight:700;">● Live
-                Memory
-                Active</span>
-            </div>
-
-            <h3 style="font-family:var(--font-bubbly); font-size:1.6rem; margin-bottom:8px;">Midnight Wish Wall</h3>
-            <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:20px;">
-              Leave a bedtime wish or gentle hello for Pip! Your message will be saved to the nursery wall.
-            </p>
-
-            <form id="guestbookForm" class="guestbook-form">
-              <div class="input-row">
-                <input type="text" id="guestName" class="guest-input" placeholder="Your name or creature species"
-                  required style="flex:1;">
-              </div>
-              <textarea id="guestWish" class="guest-input full-width" rows="3"
-                placeholder="What kind of dream would you like Pip to deliver tonight?" required></textarea>
-              <button type="submit" class="btn-primary" style="align-self:flex-start;">
-                <span>Hang Wish on Wall</span>
-                <span aria-hidden="true">💌</span>
-              </button>
-            </form>
-
-            <div id="wishesFeed" class="wishes-feed">
-              <!-- Wishes injected dynamically via app.js -->
-            </div>
+        <!-- Live Dream Guestbook (+2 pts) -->
+        <div class="guestbook-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="section-eyebrow">Side Quest (+2 pts)</span>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:#10b981; font-weight:700;">● Live
+              Memory
+              Active</span>
           </div>
 
-          <!-- Vintage Mechanical Hit Counter Odometer (+1 pt) -->
-          <div class="odometer-card vintage-odometer-housing">
-            <span class="section-eyebrow">Side Quest (+1 pt) · Antique Mechanical Ticker</span>
-            <h3 class="odometer-title">Sweet Dreams Delivered</h3>
-            <p class="odometer-desc">
-              Vintage mechanical rolling-drum odometer with real tumblers tracking every peaceful bedtime delivery since
-              launch.
-            </p>
+          <h3 style="font-family:var(--font-bubbly); font-size:1.6rem; margin-bottom:8px;">Midnight Wish Wall</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:20px;">
+            Leave a bedtime wish or gentle hello for Pip! Your message will be saved to the nursery wall.
+          </p>
 
-            <!-- Authentic Rolling Mechanical Drum Odometer Casing -->
-            <div class="odometer-chassis">
-              <div class="odometer-bezel">
-                <!-- Corner Brass Screws -->
-                <span class="brass-screw screw-tl"></span>
-                <span class="brass-screw screw-tr"></span>
-                <span class="brass-screw screw-bl"></span>
-                <span class="brass-screw screw-br"></span>
-                <!-- Beveled Glare Filter -->
-                <div class="odometer-glass-reflection"></div>
-
-                <!-- Dynamic Rolling Digit Drum Rack -->
-                <div class="odometer-drum-rack" id="odometerDrumRack" aria-label="Dreams delivered mechanical counter">
-                  <!-- 6 physical rolling cylinder drums generated and animated via app.js -->
-                </div>
-              </div>
-              <div class="odometer-sub-plate">
-                <span class="plate-spec">SERIAL #001 · MIDNIGHT NURSERY</span>
-                <span class="plate-unit">DREAMS WOVEN</span>
-              </div>
+          <form id="guestbookForm" class="guestbook-form">
+            <div class="input-row">
+              <input type="text" id="guestName" class="guest-input" placeholder="Your name or creature species" required
+                style="flex:1;">
             </div>
+            <textarea id="guestWish" class="guest-input full-width" rows="3"
+              placeholder="What kind of dream would you like Pip to deliver tonight?" required></textarea>
+            <button type="submit" class="btn-primary" style="align-self:flex-start;">
+              <span>Hang Wish on Wall</span>
+              <span aria-hidden="true">💌</span>
+            </button>
+          </form>
 
-            <!-- Interactive Delivery Buttons -->
-            <div class="odometer-action-cluster">
-              <button id="deliverDreamBtn" class="odometer-btn deliver-dream-trigger" type="button">
-                <span>✦ Deliver Another Dream (+1) ✦</span>
-              </button>
-
-              <div class="quick-stardust-row">
-                <button class="burst-btn deliver-dream-trigger" data-amount="5" type="button"
-                  title="Deliver 5 dreams at once">+5 Cluster</button>
-                <button class="burst-btn deliver-dream-trigger" data-amount="25" type="button"
-                  title="Deliver 25 dreams at once">+25 Wave</button>
-                <button class="burst-btn deliver-dream-trigger" data-amount="100" type="button"
-                  title="Deliver 100 dreams at once">+100 Superburst</button>
-              </div>
-            </div>
-
-            <p class="odometer-footnote">
-              Mechanical tumblers click and roll with authentic brass ratchet physics. Auto-ticks every few moments as
-              dreams are delivered worldwide!
-            </p>
+          <div id="wishesFeed" class="wishes-feed">
+            <!-- Wishes injected dynamically via app.js -->
           </div>
-
         </div>
-      </section>
 
-      <!-- ======================================================================
-         SECTION 5: OFFICIAL CHARACTER SHEET & HACKATHON VERIFICATION
-         Track 1 Canon Alignment & Rubric Compliance
-         ====================================================================== -->
-      <section id="character-sheet" class="showcase-block wrap">
-        <div class="section-lead">
-          <span class="section-eyebrow">Official Verification</span>
-          <h2 class="section-title">Track 1 <em>Canon</em> Verification</h2>
-          <p class="section-subtitle">
-            Verified character specifications according to haX.baby official hackathon brief.
+        <!-- Vintage Mechanical Hit Counter Odometer (+1 pt) -->
+        <div class="odometer-card vintage-odometer-housing">
+          <span class="section-eyebrow">Side Quest (+1 pt) · Antique Mechanical Ticker</span>
+          <h3 class="odometer-title">Sweet Dreams Delivered</h3>
+          <p class="odometer-desc">
+            Vintage mechanical rolling-drum odometer with real tumblers tracking every peaceful bedtime delivery since
+            launch.
+          </p>
+
+          <!-- Authentic Rolling Mechanical Drum Odometer Casing -->
+          <div class="odometer-chassis">
+            <div class="odometer-bezel">
+              <!-- Corner Brass Screws -->
+              <span class="brass-screw screw-tl"></span>
+              <span class="brass-screw screw-tr"></span>
+              <span class="brass-screw screw-bl"></span>
+              <span class="brass-screw screw-br"></span>
+              <!-- Beveled Glare Filter -->
+              <div class="odometer-glass-reflection"></div>
+
+              <!-- Dynamic Rolling Digit Drum Rack -->
+              <div class="odometer-drum-rack" id="odometerDrumRack" aria-label="Dreams delivered mechanical counter">
+                <!-- 6 physical rolling cylinder drums generated and animated via app.js -->
+              </div>
+            </div>
+            <div class="odometer-sub-plate">
+              <span class="plate-spec">SERIAL #001 · MIDNIGHT NURSERY</span>
+              <span class="plate-unit">DREAMS WOVEN</span>
+            </div>
+          </div>
+
+          <!-- Interactive Delivery Buttons -->
+          <div class="odometer-action-cluster">
+            <button id="deliverDreamBtn" class="odometer-btn deliver-dream-trigger" type="button">
+              <span>✦ Deliver Another Dream (+1) ✦</span>
+            </button>
+
+            <div class="quick-stardust-row">
+              <button class="burst-btn deliver-dream-trigger" data-amount="5" type="button"
+                title="Deliver 5 dreams at once">+5 Cluster</button>
+              <button class="burst-btn deliver-dream-trigger" data-amount="25" type="button"
+                title="Deliver 25 dreams at once">+25 Wave</button>
+              <button class="burst-btn deliver-dream-trigger" data-amount="100" type="button"
+                title="Deliver 100 dreams at once">+100 Superburst</button>
+            </div>
+          </div>
+
+          <p class="odometer-footnote">
+            Mechanical tumblers click and roll with authentic brass ratchet physics. Auto-ticks every few moments as
+            dreams are delivered worldwide!
           </p>
         </div>
 
-        <div
-          style="background:var(--bg-card); border:2px solid var(--border-soft); border-radius:var(--radius-lg); padding:32px; box-shadow:var(--shadow-md);">
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px;">
-            <div>
-              <strong
-                style="font-family:var(--font-mono); font-size:0.8rem; color:var(--accent-berry); text-transform:uppercase;">1.
-                Full Name</strong>
-              <p style="font-size:1.1rem; font-weight:700; color:var(--text-primary); margin-top:4px;">Pip, The Skull
-                Baby
-              </p>
-            </div>
-            <div>
-              <strong
-                style="font-family:var(--font-mono); font-size:0.8rem; color:var(--accent-berry); text-transform:uppercase;">2.
-                Species & Appearance</strong>
-              <p style="font-size:0.92rem; color:var(--text-secondary); margin-top:4px;">Cute baby with smooth round
-                skull
-                face, large soft eye sockets with glowing amber pinpricks, tiny crooked smile, and starry bedtime
-                nightcap
-                with a pink bow. Cute and friendly, never scary or gory.</p>
-            </div>
-            <div>
-              <strong
-                style="font-family:var(--font-mono); font-size:0.8rem; color:var(--accent-berry); text-transform:uppercase;">3.
-                Craft & Profession</strong>
-              <p style="font-size:0.92rem; color:var(--text-secondary); margin-top:4px;">Junior Dream Engineer at
-                Midnight
-                Nursery. Crafts lullabies, nightlights, and bedtime routes.</p>
-            </div>
-            <div>
-              <strong
-                style="font-family:var(--font-mono); font-size:0.8rem; color:var(--accent-berry); text-transform:uppercase;">4.
-                Tagline Motto</strong>
-              <p style="font-size:0.95rem; font-style:italic; color:var(--accent-berry); margin-top:4px;">“I build the
-                dreams you fall asleep inside.”</p>
-            </div>
-          </div>
+      </div>
+    </section>
 
-          <div
-            style="margin-top:28px; padding-top:20px; border-top:1px dashed var(--border-soft); display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; align-items:center;">
-            <span style="font-size:0.85rem; color:var(--text-muted); font-family:var(--font-mono);">
-              Hackathon Sprint: 17–19 October 2026 · 48 Hours · India Standard Time (UTC+05:30)
-            </span>
-            <a href="https://hax.baby/baby-problem" target="_blank" rel="noopener noreferrer" class="btn-secondary"
-              style="padding:8px 16px; font-size:0.82rem;">
-              <span>Review Official Brief ↗</span>
-            </a>
+    <!-- ======================================================================
+         SECTION 5: OFFICIAL CHARACTER SHEET & HACKATHON VERIFICATION
+         Track 1 Canon Alignment & Rubric Compliance
+         ====================================================================== -->
+    <section id="character-sheet" class="showcase-block wrap">
+      <div class="section-lead">
+        <span class="section-eyebrow">Official Verification</span>
+        <h2 class="section-title">Track 1 <em>Canon</em> Verification</h2>
+        <p class="section-subtitle">
+          Verified character specifications according to haX.baby official hackathon brief.
+        </p>
+      </div>
+
+      <div
+        style="background:var(--bg-card); border:2px solid var(--border-soft); border-radius:var(--radius-lg); padding:32px; box-shadow:var(--shadow-md);">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px;">
+          <div>
+            <strong
+              style="font-family:var(--font-mono); font-size:0.8rem; color:var(--accent-berry); text-transform:uppercase;">1.
+              Full Name</strong>
+            <p style="font-size:1.1rem; font-weight:700; color:var(--text-primary); margin-top:4px;">Pip, The Skull
+              Baby
+            </p>
+          </div>
+          <div>
+            <strong
+              style="font-family:var(--font-mono); font-size:0.8rem; color:var(--accent-berry); text-transform:uppercase;">2.
+              Species & Appearance</strong>
+            <p style="font-size:0.92rem; color:var(--text-secondary); margin-top:4px;">Cute baby with smooth round
+              skull
+              face, large soft eye sockets with glowing amber pinpricks, tiny crooked smile, and starry bedtime
+              nightcap
+              with a pink bow. Cute and friendly, never scary or gory.</p>
+          </div>
+          <div>
+            <strong
+              style="font-family:var(--font-mono); font-size:0.8rem; color:var(--accent-berry); text-transform:uppercase;">3.
+              Craft & Profession</strong>
+            <p style="font-size:0.92rem; color:var(--text-secondary); margin-top:4px;">Junior Dream Engineer at
+              Midnight
+              Nursery. Crafts lullabies, nightlights, and bedtime routes.</p>
+          </div>
+          <div>
+            <strong
+              style="font-family:var(--font-mono); font-size:0.8rem; color:var(--accent-berry); text-transform:uppercase;">4.
+              Tagline Motto</strong>
+            <p style="font-size:0.95rem; font-style:italic; color:var(--accent-berry); margin-top:4px;">“I build the
+              dreams you fall asleep inside.”</p>
           </div>
         </div>
-      </section>
+
+        <div
+          style="margin-top:28px; padding-top:20px; border-top:1px dashed var(--border-soft); display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.85rem; color:var(--text-muted); font-family:var(--font-mono);">
+            Hackathon Sprint: 17–19 October 2026 · 48 Hours · India Standard Time (UTC+05:30)
+          </span>
+          <a href="https://hax.baby/baby-problem" target="_blank" rel="noopener noreferrer" class="btn-secondary"
+            style="padding:8px 16px; font-size:0.82rem;">
+            <span>Review Official Brief ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
   </main>
 
