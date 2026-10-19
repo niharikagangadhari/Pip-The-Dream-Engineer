@@ -15,6 +15,59 @@
 document.addEventListener('DOMContentLoaded', () => {
   const audio = window.pipAudio;
 
+  // Scroll-led chapter changes for Pip's short dream journey.
+  const dreamJourney = document.getElementById('pip-dream-journey');
+  const dreamScenes = dreamJourney ? [...dreamJourney.querySelectorAll('[data-dream-scene]')] : [];
+  const dreamSteps = dreamJourney ? [...dreamJourney.querySelectorAll('[data-dream-step]')] : [];
+
+  if (dreamJourney && dreamScenes.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const chapterLabel = document.getElementById('dreamStoryChapter');
+    const progressMeter = document.getElementById('dreamStoryMeter');
+    const dreamStage = dreamJourney.querySelector('.dream-journey-inner');
+    let scrollFrame = 0;
+
+    dreamJourney.classList.add('is-scroll-story');
+    dreamJourney.style.setProperty('--dream-scene-count', dreamScenes.length);
+
+    function updateDreamJourney() {
+      scrollFrame = 0;
+      const sectionRect = dreamJourney.getBoundingClientRect();
+      const scrollDistance = sectionRect.height - dreamStage.offsetHeight;
+      const progress = scrollDistance > 0
+        ? Math.max(0, Math.min(1, -sectionRect.top / scrollDistance))
+        : 0;
+      const activeIndex = Math.round(progress * (dreamScenes.length - 1));
+
+      dreamJourney.style.setProperty('--dream-progress', progress);
+      dreamScenes.forEach((scene, index) => scene.classList.toggle('is-active', index === activeIndex));
+      dreamSteps.forEach((step, index) => {
+        if (index === activeIndex) step.setAttribute('aria-current', 'step');
+        else step.removeAttribute('aria-current');
+      });
+      if (chapterLabel) chapterLabel.textContent = `Chapter ${String(activeIndex + 1).padStart(2, '0')} / ${String(dreamScenes.length).padStart(2, '0')}`;
+      if (progressMeter) progressMeter.setAttribute('aria-valuenow', String(activeIndex + 1));
+    }
+
+    function requestDreamUpdate() {
+      if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateDreamJourney);
+    }
+
+    window.addEventListener('scroll', requestDreamUpdate, { passive: true });
+    window.addEventListener('resize', requestDreamUpdate);
+    dreamSteps.forEach((step, index) => {
+      step.addEventListener('click', () => {
+        const sectionTop = window.scrollY + dreamJourney.getBoundingClientRect().top;
+        const scrollDistance = dreamJourney.offsetHeight - dreamStage.offsetHeight;
+        window.scrollTo({
+          top: sectionTop + scrollDistance * (index / (dreamScenes.length - 1)),
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    updateDreamJourney();
+  }
+
   // ==========================================================================
   // 1. Mandatory Hackathon Mute Toggle & Sound HUD
   // ==========================================================================
